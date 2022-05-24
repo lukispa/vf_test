@@ -933,7 +933,7 @@
         <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
       </attribute>
       <attribute id="CV_MD_ARTHIER_HIER_ID" order="2" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_HIER_ID_TXT" displayAttribute="false">
-        <descriptions defaultDescription="Hierarchy ID"/>
+        <descriptions defaultDescription="Hierarchy ID 1"/>
         <keyMapping columnObjectName="Projection_1" columnName="HIER_ID"/>
       </attribute>
       <attribute id="CV_MD_ARTHIER_STATUS" order="3" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_STATUS_TXT" displayAttribute="false">
