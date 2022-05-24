@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="CV_MD_ARTICLE_HIERARCHY" applyPrivilegeType="NONE" checkAnalyticPrivileges="false" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
-  <origin/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="CV_MD_ARTICLE_HIERARCHY" applyPrivilegeType="NONE" checkAnalyticPrivileges="false" defaultClient="$$client$$" defaultLanguage="$$language$$" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection" hierarchiesSQLEnabled="false" translationRelevant="true">
+<origin/>
   <descriptions defaultDescription="Calculation view for the article hierarchy (transaction WMATGRP03)"/>
   <metadata changedAt="2020-09-21 11:12:44.089"/>
   <localVariables>
@@ -340,10 +340,10 @@
         <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
         <mapping xsi:type="Calculation:AttributeMapping" target="DATE_TO" source="DATE_TO"/>
       </input>
-      <filter>(&quot;HIER_ID&quot; ='VF') and &#xD;
+      <filter>(&quot;HIER_ID&quot; ='VF') and 
 &quot;DATE_TO&quot; = '99991231'</filter>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="false">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinType="leftOuter">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -395,7 +395,7 @@
         <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
       </input>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -435,7 +435,7 @@
       <joinAttribute name="STATUS"/>
       <joinAttribute name="LEVEL1"/>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -483,7 +483,7 @@
       <joinAttribute name="STATUS"/>
       <joinAttribute name="LEVEL2"/>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -539,7 +539,7 @@
       <joinAttribute name="HIER_ID"/>
       <joinAttribute name="STATUS"/>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_5" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_5" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -597,7 +597,7 @@
       </input>
       <joinAttribute name="LEVEL4"/>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_6" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_6" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -669,7 +669,7 @@
       <joinAttribute name="HIER_ID"/>
       <joinAttribute name="STATUS"/>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_7" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_7" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -749,7 +749,7 @@
       <joinAttribute name="HIER_ID"/>
       <joinAttribute name="STATUS"/>
     </calculationView>
-    <calculationView xsi:type="Calculation:JoinView" id="Join_8" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+    <calculationView xsi:type="Calculation:JoinView" id="Join_8" cardinality="CN_1" joinType="leftOuter" optimizeJoinColumns="true">
       <descriptions/>
       <viewAttributes>
         <viewAttribute id="MANDT"/>
@@ -914,10 +914,6 @@
   </calculationViews>
   <inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="H_MATNR" aggregateAllNodes="true" emptyValueIsNull="true" rootNodeVisibility="DO_NOT_ADD_ROOT_NODE" withRootNode="false" nodeStyle="NAME_PATH_ENFORCED">
     <descriptions defaultDescription="H_MATNR"/>
-    <unassignedMemberProperties>
-      <name xsi:nil="true"/>
-      <nullConvertValue xsi:nil="true"/>
-    </unassignedMemberProperties>
     <levels>
       <level levelAttribute="#CV_MD_ARTHIER_LEVEL7" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="#CV_MD_ARTHIER_LEVEL7"/>
       <level levelAttribute="#CV_MD_ARTHIER_LEVEL6" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="#CV_MD_ARTHIER_LEVEL6"/>
@@ -933,7 +929,7 @@
     <descriptions/>
     <attributes>
       <attribute id="CV_MD_ARTHIER_MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
-        <descriptions defaultDescription="Client"/>
+        <descriptions defaultDescription="Client 1"/>
         <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
       </attribute>
       <attribute id="CV_MD_ARTHIER_HIER_ID" order="2" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_HIER_ID_TXT" displayAttribute="false">
