@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_MD_HIERARCHY_EQ_PARENT_CHILD" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="crossClient" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <origin/>
+  <descriptions defaultDescription="Calculation View to generate a Parent Child hierarchy, in Include modality"/>
+  <metadata changedAt="2020-10-02 17:37:34.663"/>
+  <localVariables>
+    <variable id="V_GroupNode">
+      <descriptions defaultDescription="Group Node"/>
+      <variableProperties datatype="CHAR" defaultValue="Z01" mandatory="true">
+        <valueDomain type="empty"/>
+        <selection multiLine="false" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="50"/>
+  <dataSources>
+    <DataSource id="SETLEAF" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="SETLEAF"/>
+    </DataSource>
+    <DataSource id="SETNODE" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="SETNODE"/>
+    </DataSource>
+    <DataSource id="P_SETNODE_P$$$$SETNODE$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="SETNODE"/>
+    </DataSource>
+    <DataSource id="SETHEADERT" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="SETHEADERT"/>
+    </DataSource>
+    <DataSource id="P_SETHEADERT_P$$$$SETHEADERT$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="SETHEADERT"/>
+    </DataSource>
+    <DataSource id="P_SETHEADERT_PC$$$$SETHEADERT$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="SETHEADERT"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_SETLEAF" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="VALFROM"/>
+        <viewAttribute id="VALOPTION"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#SETLEAF">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALFROM" source="VALFROM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALOPTION" source="VALOPTION"/>
+      </input>
+      <filter>&quot;SETCLASS&quot; = '0106' and &quot;SUBCLASS&quot; = 'VFC'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_SETNODE_C" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="LINEID"/>
+        <viewAttribute id="SUBSETNAME"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#SETNODE">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LINEID" source="LINEID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+      </input>
+      <filter>&quot;SETCLASS&quot; = '0106' and &quot;SUBCLASS&quot; = 'VFC'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_SETNODE_P" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="SUBSETNAME"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_SETNODE_P$$$$SETNODE$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+      </input>
+      <filter>&quot;SETCLASS&quot; = '0106' and &quot;SUBCLASS&quot; = 'VFC'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_SETHEADERT_C" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LANGU"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="DESCRIPT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#SETHEADERT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPT" source="DESCRIPT"/>
+      </input>
+      <filter>&quot;SETCLASS&quot; = '0106' and &quot;SUBCLASS&quot; = 'VFC'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_SETNODE_C" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="LINEID"/>
+        <viewAttribute id="SUBSETNAME"/>
+        <viewAttribute id="DESCRIPT"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="NVARCHAR" id="SUBSETNAME_D" length="40" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(isnull(&quot;DESCRIPT&quot;),'',&quot;DESCRIPT&quot;)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#P_SETNODE_C">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LINEID" source="LINEID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+      </input>
+      <input node="#P_SETHEADERT_C">
+        <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPT" source="DESCRIPT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SETNAME"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="SUBSETNAME"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_SETLEAF" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="inner">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SUBSETNAME"/>
+        <viewAttribute id="SUBSETNAME_D"/>
+        <viewAttribute id="VALFROM"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#J_SETNODE_C">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME_D" source="SUBSETNAME_D"/>
+      </input>
+      <input node="#P_SETLEAF">
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALFROM" source="VALFROM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SETNAME"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="SUBSETNAME"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_SETHEADERT_P" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LANGU"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="DESCRIPT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_SETHEADERT_P$$$$SETHEADERT$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPT" source="DESCRIPT"/>
+      </input>
+      <filter>&quot;SETCLASS&quot; = '0106' and &quot;SUBCLASS&quot; = 'VFC'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_SETNODE_P" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="SUBSETNAME"/>
+        <viewAttribute id="DESCRIPT"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="NVARCHAR" id="SETNAME_D" length="40" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(isnull(&quot;DESCRIPT&quot;),'',&quot;DESCRIPT&quot;)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#P_SETNODE_P">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+      </input>
+      <input node="#P_SETHEADERT_P">
+        <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPT" source="DESCRIPT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="SETNAME"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_SETHEADERT_PC" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LANGU"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="DESCRIPT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_SETHEADERT_PC$$$$SETHEADERT$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPT" source="DESCRIPT"/>
+      </input>
+      <filter>&quot;SETCLASS&quot; = '0106' and &quot;SUBCLASS&quot; = 'VFC'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_SETNODE_PC" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="SETNAME_D"/>
+        <viewAttribute id="SUBSETNAME"/>
+        <viewAttribute id="DESCRIPT"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="NVARCHAR" id="SUBSETNAME_D" length="40" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(isnull(&quot;DESCRIPT&quot;),'',&quot;DESCRIPT&quot;)</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#J_SETNODE_P">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME_D" source="SETNAME_D"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+      </input>
+      <input node="#P_SETHEADERT_PC">
+        <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPT" source="DESCRIPT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SETNAME"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="SUBSETNAME"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:UnionView" id="U_PARENT_CHILD_OLD">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="SETNAME"/>
+        <viewAttribute id="SETNAME_D"/>
+        <viewAttribute id="SUBSETNAME"/>
+        <viewAttribute id="SUBSETNAME_D"/>
+        <viewAttribute id="VALFROM"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input emptyUnionBehavior="NO_ROW" node="#J_SETLEAF">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SUBSETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME_D" source="SUBSETNAME_D"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="VALFROM"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBSETNAME_D" null="true" value=""/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALFROM" source="VALFROM"/>
+      </input>
+      <input emptyUnionBehavior="NO_ROW" node="#J_SETNODE_PC">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME" source="SETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETNAME_D" source="SETNAME_D"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME" source="SUBSETNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBSETNAME_D" source="SUBSETNAME_D"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VALFROM" null="true" value=""/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="U_PARENT_CHILD_OLD">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MANDT"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="MANDT"/>
+      </attribute>
+      <attribute id="SETCLASS" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SETCLASS"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="SETCLASS"/>
+      </attribute>
+      <attribute id="SUBCLASS" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SUBCLASS"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="SUBCLASS"/>
+      </attribute>
+      <attribute id="PARENT_ID" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PARENT_ID"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="SETNAME"/>
+      </attribute>
+      <attribute id="PARENT" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PARENT"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="SETNAME_D"/>
+      </attribute>
+      <attribute id="CHILD_ID" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CHILD_ID"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="SUBSETNAME"/>
+      </attribute>
+      <attribute id="CHILD" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CHILD"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="SUBSETNAME_D"/>
+      </attribute>
+      <attribute id="CHILD_BTM_ID" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CHILD_BTM_ID"/>
+        <keyMapping columnObjectName="U_PARENT_CHILD_OLD" columnName="VALFROM"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="330" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_SETLEAF" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="377"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_SETNODE_C" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="473"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_SETNODE_P" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="330" y="473"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_SETHEADERT_C" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="473"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_SETNODE_C" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="377"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_SETLEAF" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="281"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_SETHEADERT_P" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="484" y="473"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_SETNODE_P" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="407" y="377"/>
+        <rectangleSize height="12" width="140"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_SETHEADERT_PC" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="561" y="377"/>
+        <rectangleSize height="64" width="150"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_SETNODE_PC" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="407" y="281"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="U_PARENT_CHILD_OLD" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="330" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

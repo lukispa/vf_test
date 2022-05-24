@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" schemaVersion="2.3" id="CV_STAR" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED">
+  <origin/>
+  <descriptions defaultDescription="CV_STAR"/>
+  <metadata changedAt="2020-10-21 12:27:19.498"/>
+  <localVariables>
+    <variable id="IN_HIER_MATNR" parameter="true">
+      <descriptions defaultDescription="IN_HIER_MATNR"/>
+      <variableProperties datatype="NVARCHAR" length="40" mandatory="false" scale="0">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_MATNR" resourceUri="/private.lucas/calculationviews/CV_MD_ARTICLE_HIERARCHY"/>
+          <hierarchyName>H_MATNR</hierarchyName>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+        <defaultRange including="true"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L1">
+      <descriptions defaultDescription="VAR_L1"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL1</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L2"/>
+            <localVariable>#VAR_L2</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L3"/>
+            <localVariable>#VAR_L3</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L4"/>
+            <localVariable>#VAR_L4</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L5"/>
+            <localVariable>#VAR_L5</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L6"/>
+            <localVariable>#VAR_L6</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L7"/>
+            <localVariable>#VAR_L7</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L2">
+      <descriptions defaultDescription="VAR_L2"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL2</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L1"/>
+            <localVariable>#VAR_L1</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L3"/>
+            <localVariable>#VAR_L3</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L4"/>
+            <localVariable>#VAR_L4</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L5"/>
+            <localVariable>#VAR_L5</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L6"/>
+            <localVariable>#VAR_L6</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L7"/>
+            <localVariable>#VAR_L7</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L3">
+      <descriptions defaultDescription="VAR_L3"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL3</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L1"/>
+            <localVariable>#VAR_L1</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L2"/>
+            <localVariable>#VAR_L2</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L4"/>
+            <localVariable>#VAR_L4</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L5"/>
+            <localVariable>#VAR_L5</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L6"/>
+            <localVariable>#VAR_L6</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L7"/>
+            <localVariable>#VAR_L7</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L4">
+      <descriptions defaultDescription="VAR_L4"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL4</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L1"/>
+            <localVariable>#VAR_L1</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L2"/>
+            <localVariable>#VAR_L2</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L3"/>
+            <localVariable>#VAR_L3</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L5"/>
+            <localVariable>#VAR_L5</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L6"/>
+            <localVariable>#VAR_L6</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L7"/>
+            <localVariable>#VAR_L7</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L5">
+      <descriptions defaultDescription="VAR_L5"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL5</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L1"/>
+            <localVariable>#VAR_L1</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L2"/>
+            <localVariable>#VAR_L2</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L3"/>
+            <localVariable>#VAR_L3</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L4"/>
+            <localVariable>#VAR_L4</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L6"/>
+            <localVariable>#VAR_L6</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L7"/>
+            <localVariable>#VAR_L7</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L6">
+      <descriptions defaultDescription="VAR_L6"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL6</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L1"/>
+            <localVariable>#VAR_L1</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L2"/>
+            <localVariable>#VAR_L2</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L3"/>
+            <localVariable>#VAR_L3</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L4"/>
+            <localVariable>#VAR_L4</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L5"/>
+            <localVariable>#VAR_L5</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L7"/>
+            <localVariable>#VAR_L7</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L7">
+      <descriptions defaultDescription="VAR_L7"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>private.lucas::CV_MD_ARTICLE_HIERARCHY</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_ARTHIER_LEVEL7</externalLikeElementName>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L1"/>
+            <localVariable>#VAR_L1</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L2"/>
+            <localVariable>#VAR_L2</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L3"/>
+            <localVariable>#VAR_L3</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L4"/>
+            <localVariable>#VAR_L4</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L5"/>
+            <localVariable>#VAR_L5</localVariable>
+          </variableMapping>
+          <variableMapping xsi:type="Variable:VariableMapping">
+            <targetVariable name="VAR_L6"/>
+            <localVariable>#VAR_L6</localVariable>
+          </variableMapping>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_WERKS" parameter="true">
+      <descriptions defaultDescription="IN_WERKS"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="4" mandatory="false" scale="0">
+        <valueDomain type="AttributeValue">
+          <externalLikeStructureName>dt.md.dtc::CV_MD_T001W_STORE</externalLikeStructureName>
+          <externalLikeStructureType>CALCULATION_VIEW</externalLikeStructureType>
+          <externalLikeElementName>CV_MD_T001W_STORE_WERKS</externalLikeElementName>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="INVENTORY_SNAPSHOT" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="BI_OBJECTS" columnObjectName="INVENTORY_SNAPSHOT"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="SNAPSHOT_DATE"/>
+        <viewAttribute id="LABST"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#INVENTORY_SNAPSHOT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SNAPSHOT_DATE" source="SNAPSHOT_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LABST" source="LABST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+      </input>
+      <filter>not in( &quot;WERKS&quot;, $$IN_WERKS$$ )</filter>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="MATNR" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MATNR"/>
+      </attribute>
+      <attribute id="WERKS" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WERKS"/>
+      </attribute>
+      <attribute id="SNAPSHOT_DATE" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Snapshot Date"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SNAPSHOT_DATE"/>
+      </attribute>
+      <attribute id="MANDT$local">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="MATNR$local">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MATNR"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="CALC_COL" hidden="false" order="10" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CALC_COL"/>
+        <keyCalculation datatype="NVARCHAR" expressionLanguage="COLUMN_ENGINE" length="500">
+          <formula>$$IN_HIER_MATNR$$</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="LABST" order="5" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <measureMapping columnObjectName="Projection_1" columnName="LABST"/>
+      </measure>
+      <measure id="FISCAL_YEAR_WEEK_NUMBER" order="6" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Week Number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="FISCAL_YEAR_WEEK_NUMBER"/>
+      </measure>
+      <measure id="FISCAL_YEAR_MONTH_NUMBER" order="7" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Month Number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="FISCAL_YEAR_MONTH_NUMBER"/>
+      </measure>
+      <measure id="FISCAL_YEAR_QUARTER_NUMBER" order="8" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Quarter Number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </measure>
+      <measure id="FISCAL_YEAR_NUMBER" order="9" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Number"/>
+        <measureMapping columnObjectName="Projection_1" columnName="FISCAL_YEAR_NUMBER"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+    <sharedDimensions>
+      <logicalJoin associatedObjectUri="/private.lucas/calculationviews/CV_MD_ARTICLE_HIERARCHY">
+        <attributes>
+          <attributeRef>#MANDT$local</attributeRef>
+          <attributeRef>#MATNR$local</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>CV_MD_ARTHIER_MANDT</attributeName>
+          <attributeName>CV_MD_ARTHIER_MATNR</attributeName>
+        </associatedAttributeNames>
+        <properties cardinality="CN_1" joinOperator="Equal" joinType="leftOuter" optimizeJoinColumns="true"/>
+        <associatedAttributeFeatures>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL1">
+            <localVariable>#VAR_L1</localVariable>
+          </attributeReference>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL2">
+            <localVariable>#VAR_L2</localVariable>
+          </attributeReference>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL3">
+            <localVariable>#VAR_L3</localVariable>
+          </attributeReference>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL4">
+            <localVariable>#VAR_L4</localVariable>
+          </attributeReference>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL5">
+            <localVariable>#VAR_L5</localVariable>
+          </attributeReference>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL6">
+            <localVariable>#VAR_L6</localVariable>
+          </attributeReference>
+          <attributeReference attributeName="CV_MD_ARTHIER_LEVEL7">
+            <localVariable>#VAR_L7</localVariable>
+          </attributeReference>
+        </associatedAttributeFeatures>
+        <associatedHierarchyFeature hierarchyName="H_MATNR">
+          <joinProperties nodeElementName="H_MATNRNode" expressionParameterName="H_MATNRExpression">
+            <levelElementName xsi:nil="true"/>
+            <ordinalElementName xsi:nil="true"/>
+          </joinProperties>
+        </associatedHierarchyFeature>
+      </logicalJoin>
+    </sharedDimensions>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="203"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+        <upperLeftCorner x="250" y="250"/>
+      </shape>
+      <shape modelObjectName="/private.lucas/calculationviews/CV_MD_ARTICLE_HIERARCHY" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+        <upperLeftCorner x="694" y="30"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

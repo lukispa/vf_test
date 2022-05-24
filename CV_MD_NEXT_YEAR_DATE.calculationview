@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_MD_NEXT_YEAR_DATE" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="Technical - Next Year Date"/>
+  <metadata changedAt="2020-10-21 15:37:15.169" createdAt="2020-10-21 15:37:15.169"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="TIME_DIMENSION" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="BI_OBJECTS" columnObjectName="TIME_DIMENSION"/>
+    </DataSource>
+    <DataSource id="NEXT_YEAR$$$$TIME_DIMENSION$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="BI_OBJECTS" columnObjectName="TIME_DIMENSION"/>
+    </DataSource>
+    <DataSource id="NEXT_NEXT_YEAR$$$$TIME_DIMENSION$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="BI_OBJECTS" columnObjectName="TIME_DIMENSION"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CALENDAR_VARIANT"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="NEXT_FISCAL_YEAR_NUMBER" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;FISCAL_YEAR_NUMBER&quot; + 1</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="INTEGER" id="NEXT_NEXT_FISCAL_YEAR_NUMBER" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;FISCAL_YEAR_NUMBER&quot; + 2</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#TIME_DIMENSION">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALENDAR_VARIANT" source="CALENDAR_VARIANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </input>
+      <filter>&quot;CALENDAR_VARIANT&quot; = 'VF'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="NEXT_YEAR" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CALENDAR_VARIANT"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#NEXT_YEAR$$$$TIME_DIMENSION$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALENDAR_VARIANT" source="CALENDAR_VARIANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </input>
+      <filter>&quot;CALENDAR_VARIANT&quot; = 'VF'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinOrder="OUTSIDE_IN" joinType="referential" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="NEXT_DATE_SQL"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute hidden="true" id="JOIN$NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_FISCAL_YEAR_NUMBER" source="NEXT_NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER" source="NEXT_FISCAL_YEAR_NUMBER"/>
+      </input>
+      <input node="#NEXT_YEAR">
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="JOIN$NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER"/>
+      <joinAttribute name="FISCAL_DAY_OF_YEAR_NUMBER"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="NEXT_NEXT_YEAR" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CALENDAR_VARIANT"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#NEXT_NEXT_YEAR$$$$TIME_DIMENSION$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALENDAR_VARIANT" source="CALENDAR_VARIANT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </input>
+      <filter>&quot;CALENDAR_VARIANT&quot; = 'VF'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_1" joinOrder="OUTSIDE_IN" joinType="referential" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="NEXT_DATE_SQL"/>
+        <viewAttribute id="NEXT_NEXT_DATE_SQL"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_NEXT_FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_NEXT_FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute hidden="true" id="JOIN$NEXT_NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER"/>
+        <viewAttribute hidden="true" id="JOIN$FISCAL_DAY_OF_YEAR_NUMBER$FISCAL_DAY_OF_YEAR_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_DATE_SQL" source="NEXT_DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_MONTH_NUMBER" source="NEXT_FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_QUARTER_NUMBER" source="NEXT_FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_NUMBER" source="NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NEXT_NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER" source="NEXT_NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$FISCAL_DAY_OF_YEAR_NUMBER$FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+      </input>
+      <input node="#NEXT_NEXT_YEAR">
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$NEXT_NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$FISCAL_DAY_OF_YEAR_NUMBER$FISCAL_DAY_OF_YEAR_NUMBER" source="FISCAL_DAY_OF_YEAR_NUMBER"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="JOIN$NEXT_NEXT_FISCAL_YEAR_NUMBER$FISCAL_YEAR_NUMBER"/>
+      <joinAttribute name="JOIN$FISCAL_DAY_OF_YEAR_NUMBER$FISCAL_DAY_OF_YEAR_NUMBER"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_2">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAP Client"/>
+        <keyMapping columnObjectName="Join_2" columnName="MANDT"/>
+      </attribute>
+      <attribute id="DATE_SQL" key="true" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="DATE_SQL"/>
+      </attribute>
+      <attribute id="FISCAL_YEAR_WEEK_NUMBER" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Week Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="FISCAL_YEAR_WEEK_NUMBER"/>
+      </attribute>
+      <attribute id="FISCAL_YEAR_MONTH_NUMBER" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Month Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="FISCAL_YEAR_MONTH_NUMBER"/>
+      </attribute>
+      <attribute id="FISCAL_YEAR_QUARTER_NUMBER" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Quarter Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </attribute>
+      <attribute id="FISCAL_YEAR_NUMBER" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FISCAL_YEAR_NUMBER"/>
+        <keyMapping columnObjectName="Join_2" columnName="FISCAL_YEAR_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_DATE_SQL" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_DATE_SQL"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Week Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_YEAR_MONTH_NUMBER" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Month Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_FISCAL_YEAR_MONTH_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_YEAR_QUARTER_NUMBER" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Quarter Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_FISCAL_YEAR_QUARTER_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_YEAR_NUMBER" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_FISCAL_YEAR_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_NEXT_DATE_SQL" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_NEXT_DATE_SQL"/>
+      </attribute>
+      <attribute id="NEXT_NEXT_FISCAL_YEAR_WEEK_NUMBER" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Week Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_NEXT_FISCAL_YEAR_MONTH_NUMBER" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Month Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_NEXT_FISCAL_YEAR_MONTH_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_NEXT_FISCAL_YEAR_QUARTER_NUMBER" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Quarter Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_NEXT_FISCAL_YEAR_QUARTER_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_NEXT_FISCAL_YEAR_NUMBER" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Nbr"/>
+        <keyMapping columnObjectName="Join_2" columnName="NEXT_NEXT_FISCAL_YEAR_NUMBER"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="176" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="NEXT_YEAR" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="NEXT_NEXT_YEAR" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

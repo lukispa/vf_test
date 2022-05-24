@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_MD_HIERARCHY_EQ_LEVEL" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="crossClient" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="Calculation View to generate a linear hierarchy, in Include modality"/>
+  <metadata changedAt="2020-10-02 17:45:13.295"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="32"/>
+  <dataSources>
+    <DataSource id="CV_MD_HIERARCHY_EQ_PARENT_CHILD" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/private.lucas/calculationviews/CV_MD_HIERARCHY_EQ_PARENT_CHILD</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL2$$$$CV_MD_HIERARCHY_EQ_PARENT_CHILD$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/private.lucas/calculationviews/CV_MD_HIERARCHY_EQ_PARENT_CHILD</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL4$$$$CV_MD_HIERARCHY_EQ_PARENT_CHILD$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/private.lucas/calculationviews/CV_MD_HIERARCHY_EQ_PARENT_CHILD</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL5$$$$CV_MD_HIERARCHY_EQ_PARENT_CHILD$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/private.lucas/calculationviews/CV_MD_HIERARCHY_EQ_PARENT_CHILD</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL1_2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LEVEL1_ID"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL2_ID"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL1_2_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CV_MD_HIERARCHY_EQ_PARENT_CHILD">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_2_BTM_ID" source="CHILD_BTM_ID"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="PARENT_ID"/>
+        <viewAttribute id="PARENT"/>
+        <viewAttribute id="CHILD_ID"/>
+        <viewAttribute id="CHILD"/>
+        <viewAttribute id="CHILD_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL2$$$$CV_MD_HIERARCHY_EQ_PARENT_CHILD$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD_BTM_ID" source="CHILD_BTM_ID"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_LEVEL3" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="false">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LEVEL1_ID"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL2_ID"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL3_ID"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL1_2_BTM_ID"/>
+        <viewAttribute id="LEVEL3_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL1_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_ID" source="LEVEL1_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_ID" source="LEVEL2_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_2_BTM_ID" source="LEVEL1_2_BTM_ID"/>
+      </input>
+      <input node="#P_LEVEL2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_BTM_ID" source="CHILD_BTM_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="PARENT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="LEVEL2_ID"/>
+      <joinAttribute name="LEVEL2"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL4">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="PARENT_ID"/>
+        <viewAttribute id="PARENT"/>
+        <viewAttribute id="CHILD_ID"/>
+        <viewAttribute id="CHILD"/>
+        <viewAttribute id="CHILD_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL4$$$$CV_MD_HIERARCHY_EQ_PARENT_CHILD$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD_BTM_ID" source="CHILD_BTM_ID"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_LEVEL4" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="false">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LEVEL1_ID"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL2_ID"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL3_ID"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL4_ID"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL1_2_BTM_ID"/>
+        <viewAttribute id="LEVEL3_BTM_ID"/>
+        <viewAttribute id="LEVEL4_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#J_LEVEL3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_ID" source="LEVEL1_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_ID" source="LEVEL2_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_ID" source="LEVEL3_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_2_BTM_ID" source="LEVEL1_2_BTM_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_BTM_ID" source="LEVEL3_BTM_ID"/>
+      </input>
+      <input node="#P_LEVEL4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_BTM_ID" source="CHILD_BTM_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="PARENT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="LEVEL3_ID"/>
+      <joinAttribute name="LEVEL3"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL5">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="PARENT_ID"/>
+        <viewAttribute id="PARENT"/>
+        <viewAttribute id="CHILD_ID"/>
+        <viewAttribute id="CHILD"/>
+        <viewAttribute id="CHILD_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL5$$$$CV_MD_HIERARCHY_EQ_PARENT_CHILD$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CHILD_BTM_ID" source="CHILD_BTM_ID"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="J_LEVEL5" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="leftOuter">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LEVEL1_ID"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL2_ID"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL3_ID"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL4_ID"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL5_ID"/>
+        <viewAttribute id="LEVEL5"/>
+        <viewAttribute id="LEVEL1_2_BTM_ID"/>
+        <viewAttribute id="LEVEL3_BTM_ID"/>
+        <viewAttribute id="LEVEL4_BTM_ID"/>
+        <viewAttribute id="LEVEL5_BTM_ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#J_LEVEL4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_ID" source="LEVEL1_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_ID" source="LEVEL2_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_ID" source="LEVEL3_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_ID" source="LEVEL4_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_2_BTM_ID" source="LEVEL1_2_BTM_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_BTM_ID" source="LEVEL3_BTM_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_BTM_ID" source="LEVEL4_BTM_ID"/>
+      </input>
+      <input node="#P_LEVEL5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_ID" source="CHILD_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="CHILD"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_BTM_ID" source="CHILD_BTM_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_ID" source="PARENT_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="PARENT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="SETCLASS"/>
+      <joinAttribute name="SUBCLASS"/>
+      <joinAttribute name="LEVEL4_ID"/>
+      <joinAttribute name="LEVEL4"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:AggregationView" id="A_LEVEL">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="SETCLASS"/>
+        <viewAttribute id="SUBCLASS"/>
+        <viewAttribute id="LEVEL1_ID"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL2_ID"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL3_ID"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL4_ID"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL5_ID"/>
+        <viewAttribute id="LEVEL5"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#J_LEVEL5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SETCLASS" source="SETCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SUBCLASS" source="SUBCLASS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_ID" source="LEVEL1_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_ID" source="LEVEL2_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_ID" source="LEVEL3_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_ID" source="LEVEL4_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_ID" source="LEVEL5_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="LEVEL5"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="A_LEVEL">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MANDT"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="MANDT"/>
+      </attribute>
+      <attribute id="SETCLASS" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SETCLASS"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="SETCLASS"/>
+      </attribute>
+      <attribute id="SUBCLASS" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SUBCLASS"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="SUBCLASS"/>
+      </attribute>
+      <attribute id="LEVEL1_ID" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL1_ID"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL1_ID"/>
+      </attribute>
+      <attribute id="LEVEL1" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL1"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL1"/>
+      </attribute>
+      <attribute id="LEVEL2_ID" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL2_ID"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL2_ID"/>
+      </attribute>
+      <attribute id="LEVEL2" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL2"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL2"/>
+      </attribute>
+      <attribute id="LEVEL3_ID" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL3_ID"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL3_ID"/>
+      </attribute>
+      <attribute id="LEVEL3" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL3"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL3"/>
+      </attribute>
+      <attribute id="LEVEL4_ID" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL4_ID"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL4_ID"/>
+      </attribute>
+      <attribute id="LEVEL4" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL4"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL4"/>
+      </attribute>
+      <attribute id="LEVEL5_ID" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL5_ID"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL5_ID"/>
+      </attribute>
+      <attribute id="LEVEL5" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LEVEL5"/>
+        <keyMapping columnObjectName="A_LEVEL" columnName="LEVEL5"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="99" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL1_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="531"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="531"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_LEVEL3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_LEVEL4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="339"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="339"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="J_LEVEL5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="243"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="A_LEVEL" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

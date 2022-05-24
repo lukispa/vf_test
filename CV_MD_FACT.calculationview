@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_MD_FACT" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <origin/>
+  <descriptions defaultDescription="CV_MD_FACT"/>
+  <metadata changedAt="2020-09-05 01:26:39.122"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="INVENTORY_SNAPSHOT" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="BI_OBJECTS" columnObjectName="INVENTORY_SNAPSHOT"/>
+    </DataSource>
+    <DataSource id="CV_MD_ARTICLE_HIERARCHY" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_ARTICLE_HIERARCHY</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="SNAPSHOT_DATE"/>
+        <viewAttribute id="LABST"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#INVENTORY_SNAPSHOT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SNAPSHOT_DATE" source="SNAPSHOT_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LABST" source="LABST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CV_MD_ARTHIER_MANDT"/>
+        <viewAttribute id="CV_MD_ARTHIER_MATNR"/>
+        <viewAttribute id="ARTHIER_LEVEL1"/>
+        <viewAttribute id="ARTHIER_LEVEL2"/>
+        <viewAttribute id="ARTHIER_LEVEL3"/>
+        <viewAttribute id="ARTHIER_LEVEL4"/>
+        <viewAttribute id="ARTHIER_LEVEL5"/>
+        <viewAttribute id="ARTHIER_LEVEL6"/>
+        <viewAttribute id="ARTHIER_LEVEL7"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CV_MD_ARTICLE_HIERARCHY">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_MANDT" source="CV_MD_ARTHIER_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_MATNR" source="CV_MD_ARTHIER_MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL1" source="CV_MD_ARTHIER_LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL2" source="CV_MD_ARTHIER_LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL3" source="CV_MD_ARTHIER_LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL4" source="CV_MD_ARTHIER_LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL5" source="CV_MD_ARTHIER_LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL6" source="CV_MD_ARTHIER_LEVEL6"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL7" source="CV_MD_ARTHIER_LEVEL7"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="SNAPSHOT_DATE"/>
+        <viewAttribute id="LABST"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="ARTHIER_LEVEL1"/>
+        <viewAttribute id="ARTHIER_LEVEL2"/>
+        <viewAttribute id="ARTHIER_LEVEL3"/>
+        <viewAttribute id="ARTHIER_LEVEL4"/>
+        <viewAttribute id="ARTHIER_LEVEL5"/>
+        <viewAttribute id="ARTHIER_LEVEL6"/>
+        <viewAttribute id="ARTHIER_LEVEL7"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SNAPSHOT_DATE" source="SNAPSHOT_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LABST" source="LABST"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_MONTH_NUMBER" source="FISCAL_YEAR_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_QUARTER_NUMBER" source="FISCAL_YEAR_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+      </input>
+      <input node="#Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL1" source="ARTHIER_LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL2" source="ARTHIER_LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL3" source="ARTHIER_LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL4" source="ARTHIER_LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL5" source="ARTHIER_LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL6" source="ARTHIER_LEVEL6"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ARTHIER_LEVEL7" source="ARTHIER_LEVEL7"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="CV_MD_ARTHIER_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="CV_MD_ARTHIER_MATNR"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="MATNR"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Join_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="MATNR" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Join_1" columnName="MATNR"/>
+      </attribute>
+      <attribute id="WERKS" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Join_1" columnName="WERKS"/>
+      </attribute>
+      <attribute id="SNAPSHOT_DATE" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Snapshot Date"/>
+        <keyMapping columnObjectName="Join_1" columnName="SNAPSHOT_DATE"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL1" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Sub Class"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL1"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL2" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Specific Level (Class)"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL2"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL3" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Specific Level"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL3"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL4" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Department"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL4"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL5" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Product Group"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL5"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL6" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Division"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL6"/>
+      </attribute>
+      <attribute id="ARTHIER_LEVEL7" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand"/>
+        <keyMapping columnObjectName="Join_1" columnName="ARTHIER_LEVEL7"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="LABST" order="5" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <measureMapping columnObjectName="Join_1" columnName="LABST"/>
+      </measure>
+      <measure id="FISCAL_YEAR_WEEK_NUMBER" order="6" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Week Number"/>
+        <measureMapping columnObjectName="Join_1" columnName="FISCAL_YEAR_WEEK_NUMBER"/>
+      </measure>
+      <measure id="FISCAL_YEAR_MONTH_NUMBER" order="7" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Month Number"/>
+        <measureMapping columnObjectName="Join_1" columnName="FISCAL_YEAR_MONTH_NUMBER"/>
+      </measure>
+      <measure id="FISCAL_YEAR_QUARTER_NUMBER" order="8" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Quarter Number"/>
+        <measureMapping columnObjectName="Join_1" columnName="FISCAL_YEAR_QUARTER_NUMBER"/>
+      </measure>
+      <measure id="FISCAL_YEAR_NUMBER" order="9" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Fiscal Year Number"/>
+        <measureMapping columnObjectName="Join_1" columnName="FISCAL_YEAR_NUMBER"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="99" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

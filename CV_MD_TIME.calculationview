@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="CV_MD_TIME" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="CV_MD_TIME"/>
+  <metadata changedAt="2020-09-04 16:37:10.907"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="TIME_HIERARCHY" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="LSPARVI" columnObjectName="TIME_HIERARCHY"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="L1_DAY"/>
+        <viewAttribute id="L1_TEXT"/>
+        <viewAttribute id="L2_WEEK"/>
+        <viewAttribute id="L2_TEXT"/>
+        <viewAttribute id="L3_MONTH"/>
+        <viewAttribute id="L3_TEXT"/>
+        <viewAttribute id="L4_QUARTER"/>
+        <viewAttribute id="L4_TEXT"/>
+        <viewAttribute id="L5_YEAR"/>
+        <viewAttribute id="L5_TEXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#TIME_HIERARCHY">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L1_DAY" source="L1_DAY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L1_TEXT" source="L1_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L2_WEEK" source="L2_WEEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L2_TEXT" source="L2_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L3_MONTH" source="L3_MONTH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L3_TEXT" source="L3_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L4_QUARTER" source="L4_QUARTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L4_TEXT" source="L4_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L5_YEAR" source="L5_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="L5_TEXT" source="L5_TEXT"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="H_TIME" aggregateAllNodes="true" emptyValueIsNull="true" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_ONLY_ENFORCED">
+    <descriptions defaultDescription="H_TIME"/>
+    <levels>
+      <level levelAttribute="#CV_MD_TIME_L5_YEAR" levelType="MDLEVEL_TYPE_TIME_YEARS" order="1" orderAttribute="#CV_MD_TIME_L5_YEAR"/>
+      <level levelAttribute="#CV_MD_TIME_L4_QUARTER" levelType="MDLEVEL_TYPE_TIME_QUARTERS" order="2" orderAttribute="#CV_MD_TIME_L4_QUARTER"/>
+      <level levelAttribute="#CV_MD_TIME_L3_MONTH" levelType="MDLEVEL_TYPE_TIME_MONTHS" order="3" orderAttribute="#CV_MD_TIME_L3_MONTH"/>
+      <level levelAttribute="#CV_MD_TIME_L2_WEEK" levelType="MDLEVEL_TYPE_TIME_WEEKS" order="4" orderAttribute="#CV_MD_TIME_L2_WEEK"/>
+      <level levelAttribute="#CV_MD_TIME_L1_DAY" levelType="MDLEVEL_TYPE_TIME_DAYS" order="5" orderAttribute="#CV_MD_TIME_L1_DAY"/>
+    </levels>
+  </inlineHierarchy>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="CV_MD_TIME_MANDT" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_MANDT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_DATE_SQL" key="true" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_DATE_SQL"/>
+        <keyMapping columnObjectName="Projection_1" columnName="DATE_SQL"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L1_DAY" order="3" attributeHierarchyActive="false" descriptionColumnName="CV_MD_TIME_L1_TEXT" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L1_DAY"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L1_DAY"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L1_TEXT" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L1_TEXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L1_TEXT"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L2_WEEK" order="5" attributeHierarchyActive="false" descriptionColumnName="CV_MD_TIME_L2_TEXT" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L2_WEEK"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L2_WEEK"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L2_TEXT" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L2_TEXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L2_TEXT"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L3_MONTH" order="7" attributeHierarchyActive="false" descriptionColumnName="CV_MD_TIME_L3_TEXT" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L3_MONTH"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L3_MONTH"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L3_TEXT" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L3_TEXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L3_TEXT"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L4_QUARTER" order="9" attributeHierarchyActive="false" descriptionColumnName="CV_MD_TIME_L4_TEXT" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L4_QUARTER"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L4_QUARTER"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L4_TEXT" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L4_TEXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L4_TEXT"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L5_YEAR" order="11" attributeHierarchyActive="false" descriptionColumnName="CV_MD_TIME_L5_TEXT" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L5_YEAR"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L5_YEAR"/>
+      </attribute>
+      <attribute id="CV_MD_TIME_L5_TEXT" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_TIME_L5_TEXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="L5_TEXT"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

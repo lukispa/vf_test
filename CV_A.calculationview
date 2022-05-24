@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_A" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" hierarchiesSQLEnabled="false" translationRelevant="true">
+<origin/>
+  <descriptions defaultDescription="Early Receipts"/>
+  <metadata changedAt="2020-12-03 15:52:42.226"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="24"/>
+  <dataSources>
+    <DataSource id="ZTDTC_EARLY_RCPT" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="ZTDTC_EARLY_RCPT"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="WDATU"/>
+        <viewAttribute id="ZZ_RCPTPOSTING_DATE"/>
+        <viewAttribute id="ZZ_RCPT_QTY"/>
+        <viewAttribute id="ZZ_POSTATUS"/>
+        <viewAttribute id="SGT_SCAT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#ZTDTC_EARLY_RCPT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WDATU" source="WDATU"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZ_RCPTPOSTING_DATE" source="ZZ_RCPTPOSTING_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZ_RCPT_QTY" source="ZZ_RCPT_QTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZ_POSTATUS" source="ZZ_POSTATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SGT_SCAT" source="SGT_SCAT"/>
+      </input>
+      <filter>&quot;ZZ_POSTATUS&quot; = 'EARLYRCPT' and &quot;WDATU&quot; &gt; date( now() )</filter>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Projection_2">
+    <descriptions/>
+    <attributes>
+      <attribute id="MAT_aaa1_a" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Projection_2" columnName="MANDT"/>
+      </attribute>
+      <attribute id="SGT_SCAT" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Stock Segment"/>
+        <keyMapping columnObjectName="Projection_2" columnName="SGT_SCAT"/>
+      </attribute>
+      <attribute id="MATNR" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Projection_2" columnName="MATNR"/>
+      </attribute>
+      <attribute id="WERKS" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Projection_2" columnName="WERKS"/>
+      </attribute>
+      <attribute id="WDATU" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Reqstd date"/>
+        <keyMapping columnObjectName="Projection_2" columnName="WDATU"/>
+      </attribute>
+      <attribute id="ZZ_RCPTPOSTING_DATE" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Receipt posting Date"/>
+        <keyMapping columnObjectName="Projection_2" columnName="ZZ_RCPTPOSTING_DATE"/>
+      </attribute>
+      <attribute id="ZZ_POSTATUS" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PO Status for Early Receipt Check"/>
+        <keyMapping columnObjectName="Projection_2" columnName="ZZ_POSTATUS"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="DAYS_EARLY" hidden="false" order="9" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Number of Days Early"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>daysbetween( &quot;ZZ_RCPTPOSTING_DATE&quot;, &quot;WDATU&quot; )</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="ZZ_RCPT_QTY" order="7" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Receipt Quantity"/>
+        <measureMapping columnObjectName="Projection_2" columnName="ZZ_RCPT_QTY"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

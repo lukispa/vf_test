@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="CV_MD_ARTICLE_HIERARCHY" applyPrivilegeType="NONE" checkAnalyticPrivileges="false" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="Calculation view for the article hierarchy (transaction WMATGRP03)"/>
+  <metadata changedAt="2020-09-21 11:12:44.089"/>
+  <localVariables>
+    <variable id="IN_L1" parameter="true">
+      <descriptions defaultDescription="IN_L1"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_L2" parameter="true">
+      <descriptions defaultDescription="IN_L2"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_L3" parameter="true">
+      <descriptions defaultDescription="IN_L3"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_L4" parameter="true">
+      <descriptions defaultDescription="IN_L4"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_L5" parameter="true">
+      <descriptions defaultDescription="IN_L5"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_L6" parameter="true">
+      <descriptions defaultDescription="IN_L6"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_L7" parameter="true">
+      <descriptions defaultDescription="IN_L7"/>
+      <variableProperties datatype="NVARCHAR" defaultValue="*" length="18" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L1">
+      <descriptions defaultDescription="VAR_L1"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL1"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L2">
+      <descriptions defaultDescription="VAR_L2"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL2"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L3">
+      <descriptions defaultDescription="VAR_L3"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL3"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L4">
+      <descriptions defaultDescription="VAR_L4"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL4"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L5">
+      <descriptions defaultDescription="VAR_L5"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL5"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L6">
+      <descriptions defaultDescription="VAR_L6"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL6"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="VAR_L7">
+      <descriptions defaultDescription="VAR_L7"/>
+      <variableProperties datatype="VARCHAR" mandatory="false">
+        <valueDomain type="AttributeValue">
+          <attribute name="CV_MD_ARTHIER_LEVEL7"/>
+        </valueDomain>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="30"/>
+  <dataSources>
+    <DataSource id="CV_MD_WRF_MATGRP_STR" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL3$$$$CV_MD_WRF_MATGRP_STR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL4$$$$CV_MD_WRF_MATGRP_STR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL5$$$$CV_MD_WRF_MATGRP_STR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL6$$$$CV_MD_WRF_MATGRP_STR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+    <DataSource id="P_LEVEL7$$$$CV_MD_WRF_MATGRP_STR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+    <DataSource id="WRF_MATGRP_HIER" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_MDG_BI" columnObjectName="WRF_MATGRP_HIER"/>
+    </DataSource>
+    <DataSource id="WRF_MATGRP_SKU" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_MDG_BI" columnObjectName="WRF_MATGRP_SKU"/>
+    </DataSource>
+    <DataSource id="P_LEVEL1$$$$CV_MD_WRF_MATGRP_STR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_WRF_MATGRP_STR</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="PARENT"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CV_MD_WRF_MATGRP_STR">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL3">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="PARENT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL3$$$$CV_MD_WRF_MATGRP_STR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL4">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="PARENT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL4$$$$CV_MD_WRF_MATGRP_STR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL5">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="PARENT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL5$$$$CV_MD_WRF_MATGRP_STR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL6">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="PARENT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL6$$$$CV_MD_WRF_MATGRP_STR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL7">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="STATUS_TXT"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL7$$$$CV_MD_WRF_MATGRP_STR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_WRF_MATGRP_HIER" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#WRF_MATGRP_HIER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <filter>(&quot;HIER_ID&quot; ='VF') AND (&quot;STATUS&quot; ='02')</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="DATE_TO"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#WRF_MATGRP_SKU">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_TO" source="DATE_TO"/>
+      </input>
+      <filter>(&quot;HIER_ID&quot; ='VF') and &#xD;
+&quot;DATE_TO&quot; = '99991231'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="false">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_WRF_MATGRP_HIER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <input node="#Aggregation_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="P_LEVEL1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="NODE"/>
+        <viewAttribute id="NODE_LTEXTG"/>
+        <viewAttribute id="NODE_TREE_LEVEL"/>
+        <viewAttribute id="NODE_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="PARENT"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#P_LEVEL1$$$$CV_MD_WRF_MATGRP_STR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NODE_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+      </input>
+      <input node="#P_LEVEL1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="NODE"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+      <joinAttribute name="STATUS"/>
+      <joinAttribute name="LEVEL1"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+      <input node="#P_LEVEL2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="NODE"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+      <joinAttribute name="STATUS"/>
+      <joinAttribute name="LEVEL2"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL3_LTEXTG"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="LEVEL2_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="LEVEL2_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+      <input node="#P_LEVEL3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <joinAttribute name="LEVEL3"/>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+      <joinAttribute name="STATUS"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_5" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL3_LTEXTG"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL4_LTEXTG"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL5"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="LEVEL2_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="LEVEL2_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_LTEXTG" source="LEVEL3_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL" source="LEVEL3_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL_TEXT" source="LEVEL3_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+      <input node="#P_LEVEL4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="NODE"/>
+      </input>
+      <joinAttribute name="LEVEL4"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_6" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL3_LTEXTG"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL4_LTEXTG"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL5"/>
+        <viewAttribute id="LEVEL5_LTEXTG"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL6"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="LEVEL2_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="LEVEL2_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_LTEXTG" source="LEVEL3_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL" source="LEVEL3_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL_TEXT" source="LEVEL3_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_LTEXTG" source="LEVEL4_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL" source="LEVEL4_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL_TEXT" source="LEVEL4_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+      <input node="#P_LEVEL5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <joinAttribute name="LEVEL5"/>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+      <joinAttribute name="STATUS"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_7" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL3_LTEXTG"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL4_LTEXTG"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL5"/>
+        <viewAttribute id="LEVEL5_LTEXTG"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL6"/>
+        <viewAttribute id="LEVEL6_LTEXTG"/>
+        <viewAttribute id="LEVEL6_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL6_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL7"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="LEVEL2_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="LEVEL2_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_LTEXTG" source="LEVEL3_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL" source="LEVEL3_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL_TEXT" source="LEVEL3_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_LTEXTG" source="LEVEL4_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL" source="LEVEL4_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL_TEXT" source="LEVEL4_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_LTEXTG" source="LEVEL5_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL" source="LEVEL5_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL_TEXT" source="LEVEL5_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6" source="LEVEL6"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+      <input node="#P_LEVEL6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_TREE_LEVEL_TEXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7" source="PARENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <joinAttribute name="LEVEL6"/>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+      <joinAttribute name="STATUS"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_8" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL3_LTEXTG"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL4_LTEXTG"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL5"/>
+        <viewAttribute id="LEVEL5_LTEXTG"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL6"/>
+        <viewAttribute id="LEVEL6_LTEXTG"/>
+        <viewAttribute id="LEVEL6_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL6_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL7"/>
+        <viewAttribute id="LEVEL7_LTEXTG"/>
+        <viewAttribute id="LEVEL7_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL7_TREE_LEVEL_TXT"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="LEVEL2_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="LEVEL2_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_LTEXTG" source="LEVEL3_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL" source="LEVEL3_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL_TEXT" source="LEVEL3_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_LTEXTG" source="LEVEL4_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL" source="LEVEL4_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL_TEXT" source="LEVEL4_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_LTEXTG" source="LEVEL5_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL" source="LEVEL5_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL_TEXT" source="LEVEL5_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6" source="LEVEL6"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_LTEXTG" source="LEVEL6_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_TREE_LEVEL" source="LEVEL6_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_TREE_LEVEL_TEXT" source="LEVEL6_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7" source="LEVEL7"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+      <input node="#P_LEVEL7">
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7_LTEXTG" source="NODE_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7_TREE_LEVEL" source="NODE_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7_TREE_LEVEL_TXT" source="NODE_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7" source="NODE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      </input>
+      <joinAttribute name="LEVEL7"/>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="HIER_ID"/>
+      <joinAttribute name="STATUS"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="HIER_ID"/>
+        <viewAttribute id="STATUS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="LEVEL1"/>
+        <viewAttribute id="LEVEL1_LTEXTG"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL1_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL2"/>
+        <viewAttribute id="LEVEL2_LTEXTG"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL2_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL3"/>
+        <viewAttribute id="LEVEL3_LTEXTG"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL3_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL4"/>
+        <viewAttribute id="LEVEL4_LTEXTG"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL4_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL5"/>
+        <viewAttribute id="LEVEL5_LTEXTG"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL5_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL6"/>
+        <viewAttribute id="LEVEL6_LTEXTG"/>
+        <viewAttribute id="LEVEL6_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL6_TREE_LEVEL_TEXT"/>
+        <viewAttribute id="LEVEL7"/>
+        <viewAttribute id="LEVEL7_LTEXTG"/>
+        <viewAttribute id="LEVEL7_TREE_LEVEL"/>
+        <viewAttribute id="LEVEL7_TREE_LEVEL_TXT"/>
+        <viewAttribute id="HIER_ID_TXT"/>
+        <viewAttribute id="STATUS_TXT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_8">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID" source="HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1" source="LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_LTEXTG" source="LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL" source="LEVEL1_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL1_TREE_LEVEL_TEXT" source="LEVEL1_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2" source="LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_LTEXTG" source="LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL" source="LEVEL2_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL2_TREE_LEVEL_TEXT" source="LEVEL2_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3" source="LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_LTEXTG" source="LEVEL3_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL" source="LEVEL3_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL3_TREE_LEVEL_TEXT" source="LEVEL3_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4" source="LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_LTEXTG" source="LEVEL4_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL" source="LEVEL4_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL4_TREE_LEVEL_TEXT" source="LEVEL4_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5" source="LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_LTEXTG" source="LEVEL5_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL" source="LEVEL5_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL5_TREE_LEVEL_TEXT" source="LEVEL5_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6" source="LEVEL6"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_LTEXTG" source="LEVEL6_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_TREE_LEVEL" source="LEVEL6_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL6_TREE_LEVEL_TEXT" source="LEVEL6_TREE_LEVEL_TEXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7" source="LEVEL7"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7_LTEXTG" source="LEVEL7_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7_TREE_LEVEL" source="LEVEL7_TREE_LEVEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LEVEL7_TREE_LEVEL_TXT" source="LEVEL7_TREE_LEVEL_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="HIER_ID_TXT" source="HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STATUS_TXT" source="STATUS_TXT"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="H_MATNR" aggregateAllNodes="true" emptyValueIsNull="true" rootNodeVisibility="DO_NOT_ADD_ROOT_NODE" withRootNode="false" nodeStyle="NAME_PATH_ENFORCED">
+    <descriptions defaultDescription="H_MATNR"/>
+    <unassignedMemberProperties>
+      <name xsi:nil="true"/>
+      <nullConvertValue xsi:nil="true"/>
+    </unassignedMemberProperties>
+    <levels>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL7" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="#CV_MD_ARTHIER_LEVEL7"/>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL6" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="#CV_MD_ARTHIER_LEVEL6"/>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL5" levelType="MDLEVEL_TYPE_REGULAR" order="3" orderAttribute="#CV_MD_ARTHIER_LEVEL5"/>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL4" levelType="MDLEVEL_TYPE_REGULAR" order="4" orderAttribute="#CV_MD_ARTHIER_LEVEL4"/>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL3" levelType="MDLEVEL_TYPE_REGULAR" order="5" orderAttribute="#CV_MD_ARTHIER_LEVEL3"/>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL2" levelType="MDLEVEL_TYPE_REGULAR" order="6" orderAttribute="#CV_MD_ARTHIER_LEVEL2"/>
+      <level levelAttribute="#CV_MD_ARTHIER_LEVEL1" levelType="MDLEVEL_TYPE_REGULAR" order="7" orderAttribute="#CV_MD_ARTHIER_LEVEL1"/>
+      <level levelAttribute="#CV_MD_ARTHIER_MATNR" levelType="MDLEVEL_TYPE_REGULAR" order="8" orderAttribute="#CV_MD_ARTHIER_MATNR"/>
+    </levels>
+  </inlineHierarchy>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="CV_MD_ARTHIER_MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_HIER_ID" order="2" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_HIER_ID_TXT" displayAttribute="false">
+        <descriptions defaultDescription="Hierarchy ID"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HIER_ID"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_STATUS" order="3" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_STATUS_TXT" displayAttribute="false">
+        <descriptions defaultDescription="Status"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STATUS"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_MATNR" order="4" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL1_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MATNR"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL1" order="5" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL1_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Sub Class"/>
+        <localVariable>#VAR_L1</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL1"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL1_LTEXTG" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Sub Class Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL1_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL2" order="7" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL2_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Specific Level (Class)"/>
+        <localVariable>#VAR_L2</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL2"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL2_LTEXTG" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Specific Level (Class) Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL2_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL3" order="9" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL3_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Specific Level"/>
+        <localVariable>#VAR_L3</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL3"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL3_LTEXTG" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Specific Level Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL3_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL4" order="11" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL4_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Department"/>
+        <localVariable>#VAR_L4</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL4"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL4_LTEXTG" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Department Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL4_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL5" order="13" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL5_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Product Group"/>
+        <localVariable>#VAR_L5</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL5"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL5_LTEXTG" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Product Group Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL5_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL6" order="15" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL6_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Division"/>
+        <localVariable>#VAR_L6</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL6"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL6_LTEXTG" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Division Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL6_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL7" order="17" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL7_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand"/>
+        <localVariable>#VAR_L7</localVariable>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL7"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL7_LTEXTG" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Article Hierarchy Brand Description"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LEVEL7_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_HIER_ID_TXT" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Hierarchy ID Text"/>
+        <keyMapping columnObjectName="Projection_1" columnName="HIER_ID_TXT"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_STATUS_TXT" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Status Text"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STATUS_TXT"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="cc_int" hidden="false" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="cc_int"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>0</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="477" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="336" y="819"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="410" y="723"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="483" y="627"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="557" y="531"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="632" y="435"/>
+        <rectangleSize height="31" width="140"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="400" y="339"/>
+        <rectangleSize height="31" width="140"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_WRF_MATGRP_HIER" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="1011"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="1011"/>
+        <rectangleSize height="64" width="174"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="107" y="915"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="P_LEVEL1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="261" y="915"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="182" y="819"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="256" y="723"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="329" y="627"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="403" y="531"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="478" y="435"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="554" y="339"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_8" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="477" y="243"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="477" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

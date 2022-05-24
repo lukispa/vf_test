@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="CV_MD_KSSK" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="crossClient" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="Site Hierarchy"/>
+  <metadata changedAt="2020-11-24 15:31:12.994"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="46"/>
+  <dataSources>
+    <DataSource id="KSSK" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_MDG_BI" columnObjectName="KSSK"/>
+    </DataSource>
+    <DataSource id="Level_2$$$$KSSK$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_MDG_BI" columnObjectName="KSSK"/>
+    </DataSource>
+    <DataSource id="Level_3$$$$KSSK$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_MDG_BI" columnObjectName="KSSK"/>
+    </DataSource>
+    <DataSource id="Level_4$$$$KSSK$$" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_MDG_BI" columnObjectName="KSSK"/>
+    </DataSource>
+    <DataSource id="CV_MD_SWOR" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_SWOR</resourceUri>
+    </DataSource>
+    <DataSource id="Level_2_Value$$$$CV_MD_SWOR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_SWOR</resourceUri>
+    </DataSource>
+    <DataSource id="Level_3_Value$$$$CV_MD_SWOR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_SWOR</resourceUri>
+    </DataSource>
+    <DataSource id="Level_4_Value$$$$CV_MD_SWOR$$" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/dt.md.mdm/calculationviews/CV_MD_SWOR</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_1" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="DATUB"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#KSSK">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATUB" source="DATUB"/>
+      </input>
+      <filter>&quot;KLART&quot; = '030' and &quot;DATUB&quot; = '9999-12-31'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_2" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="DATUB"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_2$$$$KSSK$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATUB" source="DATUB"/>
+      </input>
+      <filter>&quot;KLART&quot; = '030' and &quot;DATUB&quot; = '9999-12-31'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="referential" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+      </input>
+      <input node="#Level_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="OBJEK"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_1"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_3" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="DATUB"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_3$$$$KSSK$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATUB" source="DATUB"/>
+      </input>
+      <filter>&quot;KLART&quot; = '030' and &quot;DATUB&quot; = '9999-12-31'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="referential" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+        <viewAttribute id="CLINT_3"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT_2"/>
+      </input>
+      <input node="#Level_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="OBJEK"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_2"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_4" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="KLART"/>
+        <viewAttribute id="CLINT"/>
+        <viewAttribute id="DATUB"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_4$$$$KSSK$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KLART" source="KLART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATUB" source="DATUB"/>
+      </input>
+      <filter>&quot;KLART&quot; = '030' and &quot;DATUB&quot; = '9999-12-31'</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="referential" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+        <viewAttribute id="CLINT_3"/>
+        <viewAttribute id="CLINT_4"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CLINT_3"/>
+      </input>
+      <input node="#Level_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_4" source="CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="OBJEK"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_3"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_1_Value">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CV_MD_SWOR_MANDT"/>
+        <viewAttribute id="CV_MD_SWOR_CLINT"/>
+        <viewAttribute id="KSCHL_1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CV_MD_SWOR">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_CLINT" source="CV_MD_SWOR_CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_1" source="CV_MD_SWOR_KSCHL"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+        <viewAttribute id="CLINT_3"/>
+        <viewAttribute id="CLINT_4"/>
+        <viewAttribute id="KSCHL_1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CLINT_3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_4" source="CLINT_4"/>
+      </input>
+      <input node="#Level_1_Value">
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_1" source="KSCHL_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CV_MD_SWOR_CLINT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_1"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_2_Value">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CV_MD_SWOR_MANDT"/>
+        <viewAttribute id="CV_MD_SWOR_CLINT"/>
+        <viewAttribute id="KSCHL_2"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_2_Value$$$$CV_MD_SWOR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_CLINT" source="CV_MD_SWOR_CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_2" source="CV_MD_SWOR_KSCHL"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_5" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+        <viewAttribute id="CLINT_3"/>
+        <viewAttribute id="CLINT_4"/>
+        <viewAttribute id="KSCHL_1"/>
+        <viewAttribute id="KSCHL_2"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CLINT_3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_4" source="CLINT_4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_1" source="KSCHL_1"/>
+      </input>
+      <input node="#Level_2_Value">
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_2" source="KSCHL_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CV_MD_SWOR_CLINT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_2"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_3_Value">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CV_MD_SWOR_MANDT"/>
+        <viewAttribute id="CV_MD_SWOR_CLINT"/>
+        <viewAttribute id="KSCHL_3"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_3_Value$$$$CV_MD_SWOR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_CLINT" source="CV_MD_SWOR_CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_3" source="CV_MD_SWOR_KSCHL"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_6" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+        <viewAttribute id="CLINT_3"/>
+        <viewAttribute id="CLINT_4"/>
+        <viewAttribute id="KSCHL_1"/>
+        <viewAttribute id="KSCHL_2"/>
+        <viewAttribute id="KSCHL_3"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CLINT_3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_4" source="CLINT_4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_1" source="KSCHL_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_2" source="KSCHL_2"/>
+      </input>
+      <input node="#Level_3_Value">
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_3" source="KSCHL_3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CV_MD_SWOR_CLINT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_3"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Level_4_Value">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CV_MD_SWOR_MANDT"/>
+        <viewAttribute id="CV_MD_SWOR_CLINT"/>
+        <viewAttribute id="KSCHL_4"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Level_4_Value$$$$CV_MD_SWOR$$">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_SWOR_CLINT" source="CV_MD_SWOR_CLINT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_4" source="CV_MD_SWOR_KSCHL"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_7" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="OBJEK"/>
+        <viewAttribute id="CLINT_1"/>
+        <viewAttribute id="CLINT_2"/>
+        <viewAttribute id="CLINT_3"/>
+        <viewAttribute id="CLINT_4"/>
+        <viewAttribute id="KSCHL_1"/>
+        <viewAttribute id="KSCHL_2"/>
+        <viewAttribute id="KSCHL_3"/>
+        <viewAttribute id="KSCHL_4"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_6">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OBJEK" source="OBJEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_1" source="CLINT_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_2" source="CLINT_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_3" source="CLINT_3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_4" source="CLINT_4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_1" source="KSCHL_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_2" source="KSCHL_2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_3" source="KSCHL_3"/>
+      </input>
+      <input node="#Level_4_Value">
+        <mapping xsi:type="Calculation:AttributeMapping" target="KSCHL_4" source="KSCHL_4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="CV_MD_SWOR_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CLINT_4" source="CV_MD_SWOR_CLINT"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="CLINT_4"/>
+    </calculationView>
+  </calculationViews>
+  <inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="S_HIER_CD" aggregateAllNodes="true" emptyValueIsNull="true" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_PATH_ENFORCED">
+    <descriptions defaultDescription="Hierarchy Code"/>
+    <unassignedMemberProperties>
+      <name xsi:nil="true"/>
+      <nullConvertValue xsi:nil="true"/>
+    </unassignedMemberProperties>
+    <levels>
+      <level levelAttribute="#CV_MD_KSSK_CLINT_1" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="#CV_MD_KSSK_CLINT_1"/>
+      <level levelAttribute="#CV_MD_KSSK_CLINT_2" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="#CV_MD_KSSK_CLINT_2"/>
+      <level levelAttribute="#CV_MD_KSSK_CLINT_3" levelType="MDLEVEL_TYPE_REGULAR" order="3" orderAttribute="#CV_MD_KSSK_CLINT_3"/>
+      <level levelAttribute="#CV_MD_KSSK_CLINT_4" levelType="MDLEVEL_TYPE_REGULAR" order="4" orderAttribute="#CV_MD_KSSK_CLINT_4"/>
+    </levels>
+  </inlineHierarchy>
+  <inlineHierarchy xsi:type="Dimension:LeveledHierarchy" id="S_HIER_NM" aggregateAllNodes="true" emptyValueIsNull="true" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_PATH_ENFORCED">
+    <descriptions defaultDescription="Hierarchy Name"/>
+    <unassignedMemberProperties>
+      <name xsi:nil="true"/>
+      <nullConvertValue xsi:nil="true"/>
+    </unassignedMemberProperties>
+    <levels>
+      <level levelAttribute="#CV_MD_KSSK_KSCHL_1" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="#CV_MD_KSSK_KSCHL_1"/>
+      <level levelAttribute="#CV_MD_KSSK_KSCHL_2" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="#CV_MD_KSSK_KSCHL_2"/>
+      <level levelAttribute="#CV_MD_KSSK_KSCHL_3" levelType="MDLEVEL_TYPE_REGULAR" order="3" orderAttribute="#CV_MD_KSSK_KSCHL_3"/>
+      <level levelAttribute="#CV_MD_KSSK_KSCHL_4" levelType="MDLEVEL_TYPE_REGULAR" order="4" orderAttribute="#CV_MD_KSSK_KSCHL_4"/>
+    </levels>
+  </inlineHierarchy>
+  <logicalModel id="Join_7">
+    <descriptions/>
+    <attributes>
+      <attribute id="CV_MD_KSSK_MANDT" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Join_7" columnName="MANDT"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_OBJEK" key="true" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Site Code"/>
+        <keyMapping columnObjectName="Join_7" columnName="OBJEK"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_CLINT_1" order="3" attributeHierarchyActive="false" descriptionColumnName="CV_MD_KSSK_KSCHL_1_D" displayAttribute="false">
+        <descriptions defaultDescription="Level 1 District Manager Code"/>
+        <keyMapping columnObjectName="Join_7" columnName="CLINT_1"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_1" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Level 1 District Manager Desc"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_1"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_CLINT_2" order="5" attributeHierarchyActive="false" descriptionColumnName="CV_MD_KSSK_KSCHL_2_D" displayAttribute="false">
+        <descriptions defaultDescription="Level 2 Site District Code"/>
+        <keyMapping columnObjectName="Join_7" columnName="CLINT_2"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_2" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Level 2 Site District Desc"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_2"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_CLINT_3" order="7" attributeHierarchyActive="false" descriptionColumnName="CV_MD_KSSK_KSCHL_3_D" displayAttribute="false">
+        <descriptions defaultDescription="Level 3 Regional Manager Code"/>
+        <keyMapping columnObjectName="Join_7" columnName="CLINT_3"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_3" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Level 3 Regional Manager Desc"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_3"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_CLINT_4" order="9" attributeHierarchyActive="false" descriptionColumnName="CV_MD_KSSK_KSCHL_4_D" displayAttribute="false">
+        <descriptions defaultDescription="Level 4 Site Region Code"/>
+        <keyMapping columnObjectName="Join_7" columnName="CLINT_4"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_4" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Level 4 Site Region Desc"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_4"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_1_D" hidden="true" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical Field - Do not use"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_1"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_2_D" hidden="true" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical Field - Do not use"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_2"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_3_D" hidden="true" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical Field - Do not use"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_3"/>
+      </attribute>
+      <attribute id="CV_MD_KSSK_KSCHL_4_D" hidden="true" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Technical Field - Do not use"/>
+        <keyMapping columnObjectName="Join_7" columnName="KSCHL_4"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="398" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="837"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="837"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="741"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="253" y="741"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="175" y="645"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="329" y="645"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="250" y="549"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_1_Value" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="404" y="549"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="324" y="453"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_2_Value" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="478" y="453"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="399" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_3_Value" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="553" y="357"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_6" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="475" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Level_4_Value" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="321" y="261"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_7" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="398" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

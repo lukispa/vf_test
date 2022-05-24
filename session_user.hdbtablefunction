@@ -1,0 +1,10 @@
+FUNCTION "LSPARVI"."private.lucas::session_user" ( ) 
+	RETURNS TABLE ( "MANDT" nvarchar( 3 ), "USER_NAME" nvarchar( 500 ) )
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+
+return
+	select session_context( 'CLIENT' ) "MANDT", session_context( 'APPLICATIONUSER' ) "USER_NAME" from dummy;
+
+END;

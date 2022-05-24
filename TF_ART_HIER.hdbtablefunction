@@ -1,0 +1,136 @@
+FUNCTION "LSPARVI"."private.lucas::TF_ART_HIER" ( IN IN_LEVEL1 NVARCHAR( 5000 ) DEFAULT '', IN IN_LEVEL2 NVARCHAR( 5000 ) DEFAULT '', IN IN_LEVEL3 NVARCHAR( 5000 ) DEFAULT '', IN IN_LEVEL4 NVARCHAR( 5000 ) DEFAULT '', IN IN_LEVEL5 NVARCHAR( 5000 ) DEFAULT '', IN IN_LEVEL6 NVARCHAR( 5000 ) DEFAULT '', IN IN_LEVEL7 NVARCHAR( 5000 ) DEFAULT '' ) 
+	RETURNS TABLE(
+		"CV_MD_ARTHIER_MANDT" NVARCHAR( 3 ), 
+		"CV_MD_ARTHIER_HIER_ID" NVARCHAR( 2 ), 
+		"CV_MD_ARTHIER_HIER_ID_TXT" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_STATUS" NVARCHAR( 2 ), 
+		"CV_MD_ARTHIER_STATUS_TXT" NVARCHAR( 60 ), 
+		"CV_MD_ARTHIER_MATNR" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL1" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL1_LTEXTG" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL2" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL2_LTEXTG" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL3" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL3_LTEXTG" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL4" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL4_LTEXTG" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL5" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL5_LTEXTG" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL6" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL6_LTEXTG" NVARCHAR( 40 ), 
+		"CV_MD_ARTHIER_LEVEL7" NVARCHAR( 18 ), 
+		"CV_MD_ARTHIER_LEVEL7_LTEXTG" NVARCHAR( 18 )
+	)
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+
+	DECLARE vFilter NVARCHAR( 5000 ) := '';
+	DECLARE vFilterCount NVARCHAR( 5000 ) := 0;
+	
+	if :in_level1 != '' then
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL1" IN ( ' || :in_level1 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+
+	if :in_level2 != '' then
+		if :vFilterCount > 0 then
+			vFilter := :vFilter || ' AND ';
+		end if; 
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL2" IN ( ' || :in_level2 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+				
+	if :in_level3 != '' then
+		if :vFilterCount > 0 then
+			vFilter := :vFilter || ' AND ';
+		end if; 
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL3" IN ( ' || :in_level3 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+
+	if :in_level4 != '' then
+		if :vFilterCount > 0 then
+			vFilter := :vFilter || ' AND ';
+		end if; 
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL4" IN ( ' || :in_level4 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+
+	if :in_level5 != '' then
+		if :vFilterCount > 0 then
+			vFilter := :vFilter || ' AND ';
+		end if; 
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL5" IN ( ' || :in_level5 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+
+	if :in_level6 != '' then
+		if :vFilterCount > 0 then
+			vFilter := :vFilter || ' AND ';
+		end if; 
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL6" IN ( ' || :in_level6 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+
+	if :in_level7 != '' then
+		if :vFilterCount > 0 then
+			vFilter := :vFilter || ' AND ';
+		end if; 
+		vFilter := :vFilter || '"CV_MD_ARTHIER_LEVEL7" IN ( ' || :in_level7 || ' )';
+		vFilterCount := :vFilterCount + 1;
+	end if;
+
+	var_out = SELECT 
+				"CV_MD_ARTHIER_MANDT", 
+				"CV_MD_ARTHIER_HIER_ID", 
+				"CV_MD_ARTHIER_HIER_ID_TXT", 
+				"CV_MD_ARTHIER_STATUS", 
+				"CV_MD_ARTHIER_STATUS_TXT", 
+				"CV_MD_ARTHIER_MATNR", 
+				"CV_MD_ARTHIER_LEVEL1", 
+				"CV_MD_ARTHIER_LEVEL1_LTEXTG", 
+				"CV_MD_ARTHIER_LEVEL2", 
+				"CV_MD_ARTHIER_LEVEL2_LTEXTG", 
+				"CV_MD_ARTHIER_LEVEL3", 
+				"CV_MD_ARTHIER_LEVEL3_LTEXTG", 
+				"CV_MD_ARTHIER_LEVEL4", 
+				"CV_MD_ARTHIER_LEVEL4_LTEXTG", 
+				"CV_MD_ARTHIER_LEVEL5", 
+				"CV_MD_ARTHIER_LEVEL5_LTEXTG", 
+				"CV_MD_ARTHIER_LEVEL6", 
+				"CV_MD_ARTHIER_LEVEL6_LTEXTG", 
+				"CV_MD_ARTHIER_LEVEL7", 
+				"CV_MD_ARTHIER_LEVEL7_LTEXTG" 
+				FROM "_SYS_BIC"."private.lucas/CV_MD_ARTICLE_HIERARCHY";
+				
+	if :vFilter != '' then
+		var_out = apply_filter( :var_out, :vFilter );
+	end if;
+	
+RETURN
+
+	SELECT 
+		"CV_MD_ARTHIER_MANDT", 
+		"CV_MD_ARTHIER_HIER_ID", 
+		"CV_MD_ARTHIER_HIER_ID_TXT", 
+		"CV_MD_ARTHIER_STATUS", 
+		"CV_MD_ARTHIER_STATUS_TXT", 
+		"CV_MD_ARTHIER_MATNR", 
+		"CV_MD_ARTHIER_LEVEL1", 
+		"CV_MD_ARTHIER_LEVEL1_LTEXTG", 
+		"CV_MD_ARTHIER_LEVEL2", 
+		"CV_MD_ARTHIER_LEVEL2_LTEXTG", 
+		"CV_MD_ARTHIER_LEVEL3", 
+		"CV_MD_ARTHIER_LEVEL3_LTEXTG", 
+		"CV_MD_ARTHIER_LEVEL4", 
+		"CV_MD_ARTHIER_LEVEL4_LTEXTG", 
+		"CV_MD_ARTHIER_LEVEL5", 
+		"CV_MD_ARTHIER_LEVEL5_LTEXTG", 
+		"CV_MD_ARTHIER_LEVEL6", 
+		"CV_MD_ARTHIER_LEVEL6_LTEXTG", 
+		"CV_MD_ARTHIER_LEVEL7", 
+		"CV_MD_ARTHIER_LEVEL7_LTEXTG"
+		FROM :VAR_OUT;
+		
+END;

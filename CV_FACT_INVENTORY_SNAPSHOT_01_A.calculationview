@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_FACT_INVENTORY_SNAPSHOT_01_A" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <origin/>
+  <descriptions defaultDescription="CV_FACT_INVENTORY_SNAPSHOT_01"/>
+  <metadata changedAt="2020-11-05 13:53:56.586" createdAt="2020-11-05 13:53:56.461"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="MATDOC" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="MATDOC"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="LGORT"/>
+        <viewAttribute id="LBBSA"/>
+        <viewAttribute id="SOBKZ"/>
+        <viewAttribute id="STOCK_QTY"/>
+        <viewAttribute id="GJPER_CURR_PER"/>
+        <viewAttribute id="FSH_SEASON_YEAR"/>
+        <viewAttribute id="FSH_SEASON"/>
+        <viewAttribute id="FSH_COLLECTION"/>
+        <viewAttribute id="FSH_THEME"/>
+        <viewAttribute id="STOCK_VKWRT"/>
+        <viewAttribute id="RECORD_TYPE"/>
+        <viewAttribute id="BSTAUS_SG"/>
+        <viewAttribute id="SGT_SCAT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#MATDOC">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATBF"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LGORT" source="LGORT_SID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LBBSA" source="LBBSA_SID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SOBKZ" source="SOBKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STOCK_QTY" source="STOCK_QTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GJPER_CURR_PER" source="GJPER_CURR_PER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON_YEAR" source="FSH_SEASON_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON" source="FSH_SEASON"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_COLLECTION" source="FSH_COLLECTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_THEME" source="FSH_THEME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STOCK_VKWRT" source="STOCK_VKWRT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RECORD_TYPE" source="RECORD_TYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BSTAUS_SG" source="BSTAUS_SG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SGT_SCAT" source="SGT_SCAT"/>
+      </input>
+      <filter>( &quot;RECORD_TYPE&quot; = 'MDOC' AND in(&quot;BSTAUS_SG&quot;,  'A', 'B', 'D') ) and&#xD;
+( &#xD;
+	( &#xD;
+		( &quot;SOBKZ&quot; = '' OR &quot;SOBKZ&quot; = 'K' ) AND ( &quot;LBBSA&quot; = '01' OR &quot;LBBSA&quot; = '02' OR &quot;LBBSA&quot; = '07' OR &quot;LBBSA&quot; = '08' ) &#xD;
+	) OR &#xD;
+		( &quot;SOBKZ&quot; = '' AND ( &quot;LBBSA&quot; = '03' OR &quot;LBBSA&quot; = '04' ) &#xD;
+	) &#xD;
+)</filter>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="MATNR" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material in Respect of Which Stock is Managed"/>
+        <keyMapping columnObjectName="Projection_1" columnName="MATNR"/>
+      </attribute>
+      <attribute id="WERKS" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Projection_1" columnName="WERKS"/>
+      </attribute>
+      <attribute id="LGORT" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Storage Location (Stock Identifier)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LGORT"/>
+      </attribute>
+      <attribute id="FSH_SEASON_YEAR" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Season Year"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSH_SEASON_YEAR"/>
+      </attribute>
+      <attribute id="FSH_SEASON" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Season"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSH_SEASON"/>
+      </attribute>
+      <attribute id="FSH_COLLECTION" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fashion Collection"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSH_COLLECTION"/>
+      </attribute>
+      <attribute id="FSH_THEME" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fashion Theme"/>
+        <keyMapping columnObjectName="Projection_1" columnName="FSH_THEME"/>
+      </attribute>
+      <attribute id="LBBSA" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Stock Type of Goods Movement (Stock Identifier)"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LBBSA"/>
+      </attribute>
+      <attribute id="SOBKZ" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Special Stock Indicator"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SOBKZ"/>
+      </attribute>
+      <attribute id="SGT_SCAT" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Stock Segment"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SGT_SCAT"/>
+      </attribute>
+      <attribute id="BSTAUS_SG" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Stock Characteristics"/>
+        <keyMapping columnObjectName="Projection_1" columnName="BSTAUS_SG"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="GJPER_CURR_PER" order="9" aggregationType="max" measureType="simple">
+        <descriptions defaultDescription="Period/Year"/>
+        <measureMapping columnObjectName="Projection_1" columnName="GJPER_CURR_PER"/>
+      </measure>
+      <measure id="STOCK_QTY" order="12" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Stock Quantity"/>
+        <measureMapping columnObjectName="Projection_1" columnName="STOCK_QTY"/>
+      </measure>
+      <measure id="STOCK_VKWRT" order="24" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Value at Sales Prices Including Value-Added Tax"/>
+        <measureMapping columnObjectName="Projection_1" columnName="STOCK_VKWRT"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures>
+      <measure id="RC_LABST" hidden="false" order="13" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' AND &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'A'</restrictionExpression>
+      </measure>
+      <measure id="RC_UMLME" hidden="false" order="14" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Stock in transfer (from one storage location to another)"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '04' and &quot;SOBKZ&quot; = ''</restrictionExpression>
+      </measure>
+      <measure id="RC_INSME" hidden="false" order="15" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Stock in Quality Inspection"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '02' and &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'B'</restrictionExpression>
+      </measure>
+      <measure id="RC_EINME" hidden="false" order="16" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Total Stock of All Restricted Batches"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '08' and &quot;SOBKZ&quot; = ''</restrictionExpression>
+      </measure>
+      <measure id="RC_SPEME" hidden="false" order="17" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Blocked Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '07' and &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'D'</restrictionExpression>
+      </measure>
+      <measure id="RC_RETME" hidden="false" order="18" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Blocked Stock Returns"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '03' and &quot;SOBKZ&quot; = ''</restrictionExpression>
+      </measure>
+      <measure id="RC_KLABS" hidden="false" order="19" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Unrestricted-Use Consignment Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' and &quot;SOBKZ&quot; = 'K'</restrictionExpression>
+      </measure>
+      <measure id="RC_KINSM" hidden="false" order="20" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Consignment Stock in Quality Inspection"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '02' and &quot;SOBKZ&quot; = 'K'</restrictionExpression>
+      </measure>
+      <measure id="RC_KEINM" hidden="false" order="21" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Restricted-Use Consignment Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '08' and &quot;SOBKZ&quot; = 'K'</restrictionExpression>
+      </measure>
+      <measure id="RC_KSPEM" hidden="false" order="22" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Blocked Consignment Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '07' and &quot;SOBKZ&quot; = 'K'</restrictionExpression>
+      </measure>
+      <measure id="RC_VKLAB" hidden="false" order="23" baseMeasure="#STOCK_VKWRT" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Stock value of a value-only material at sales price"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' and &quot;SOBKZ&quot; = ''</restrictionExpression>
+      </measure>
+      <measure id="RC_VKUML" hidden="false" order="25" baseMeasure="#STOCK_VKWRT" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Sales value in stock transfer (SLOc to SLoc)"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '04' and &quot;SOBKZ&quot; = ''</restrictionExpression>
+      </measure>
+      <measure id="RS_UNRST_BLK" hidden="false" order="28" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="RS_UNRST_BLK"/>
+        <restrictionExpression>(&quot;SOBKZ&quot; = '') AND (&quot;LBBSA&quot; = '01' OR &quot;LBBSA&quot; = '07')</restrictionExpression>
+      </measure>
+      <measure id="RC_LABST_10" hidden="false" order="29" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' AND &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'A' AND &quot;SGT_SCAT&quot; = '10'</restrictionExpression>
+      </measure>
+      <measure id="RS_UNRST_BLK_10" hidden="false" order="30" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="RS_UNRST_BLK"/>
+        <restrictionExpression>(&quot;SOBKZ&quot; = '') AND (&quot;LBBSA&quot; = '01' OR &quot;LBBSA&quot; = '07') AND &quot;SGT_SCAT&quot; = '10'</restrictionExpression>
+      </measure>
+      <measure id="RC_LABST_15" hidden="false" order="31" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' AND &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'A' AND &quot;SGT_SCAT&quot; = '15'</restrictionExpression>
+      </measure>
+      <measure id="RS_UNRST_BLK_15" hidden="false" order="32" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="RS_UNRST_BLK"/>
+        <restrictionExpression>(&quot;SOBKZ&quot; = '') AND (&quot;LBBSA&quot; = '01' OR &quot;LBBSA&quot; = '07') AND &quot;SGT_SCAT&quot; = '15'</restrictionExpression>
+      </measure>
+      <measure id="RC_LABST_20" hidden="false" order="33" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' AND &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'A' AND &quot;SGT_SCAT&quot; = '20'</restrictionExpression>
+      </measure>
+      <measure id="RS_UNRST_BLK_20" hidden="false" order="34" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="RS_UNRST_BLK"/>
+        <restrictionExpression>(&quot;SOBKZ&quot; = '') AND (&quot;LBBSA&quot; = '01' OR &quot;LBBSA&quot; = '07') AND &quot;SGT_SCAT&quot; = '20'</restrictionExpression>
+      </measure>
+      <measure id="RC_LABST_30" hidden="false" order="35" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Valuated Unrestricted-Use Stock"/>
+        <restrictionExpression>&quot;LBBSA&quot; = '01' AND &quot;SOBKZ&quot; = '' AND &quot;BSTAUS_SG&quot; = 'A' AND &quot;SGT_SCAT&quot; = '30'</restrictionExpression>
+      </measure>
+      <measure id="RS_UNRST_BLK_30" hidden="false" order="36" baseMeasure="#STOCK_QTY" restrictionExpressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="RS_UNRST_BLK"/>
+        <restrictionExpression>(&quot;SOBKZ&quot; = '') AND (&quot;LBBSA&quot; = '01' OR &quot;LBBSA&quot; = '07') AND &quot;SGT_SCAT&quot; = '30'</restrictionExpression>
+      </measure>
+    </restrictedMeasures>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

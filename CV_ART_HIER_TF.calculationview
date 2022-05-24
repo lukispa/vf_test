@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" schemaVersion="2.3" id="CV_ART_HIER_TF" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="CV_ART_HIER_TF"/>
+  <metadata changedAt="2020-09-06 23:11:50.672"/>
+  <localVariables>
+    <variable id="IN_LEVEL1" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL1"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_LEVEL2" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL2"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_LEVEL3" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL3"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_LEVEL4" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL4"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_LEVEL5" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL5"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_LEVEL6" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL6"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+    <variable id="IN_LEVEL7" parameter="true">
+      <descriptions defaultDescription="IN_LEVEL7"/>
+      <variableProperties datatype="NVARCHAR" length="5000" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL1" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL1</localVariable>
+    </mapping>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL3" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL3</localVariable>
+    </mapping>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL4" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL4</localVariable>
+    </mapping>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL5" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL5</localVariable>
+    </mapping>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL6" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL6</localVariable>
+    </mapping>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL7" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL7</localVariable>
+    </mapping>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TF_ART_HIER">
+      <targetVariable name="IN_LEVEL2" resourceUri="private.lucas::TF_ART_HIER"/>
+      <localVariable>#IN_LEVEL2</localVariable>
+    </mapping>
+  </variableMappings>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="TF_ART_HIER" type="TABLE_FUNCTION">
+      <resourceUri>private.lucas::TF_ART_HIER</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CV_MD_ARTHIER_MANDT"/>
+        <viewAttribute id="CV_MD_ARTHIER_HIER_ID"/>
+        <viewAttribute id="CV_MD_ARTHIER_HIER_ID_TXT"/>
+        <viewAttribute id="CV_MD_ARTHIER_STATUS"/>
+        <viewAttribute id="CV_MD_ARTHIER_STATUS_TXT"/>
+        <viewAttribute id="CV_MD_ARTHIER_MATNR"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL1"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL1_LTEXTG"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL2"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL2_LTEXTG"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL3"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL3_LTEXTG"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL4"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL4_LTEXTG"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL5"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL5_LTEXTG"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL6"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL6_LTEXTG"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL7"/>
+        <viewAttribute id="CV_MD_ARTHIER_LEVEL7_LTEXTG"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#TF_ART_HIER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_MANDT" source="CV_MD_ARTHIER_MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_HIER_ID" source="CV_MD_ARTHIER_HIER_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_HIER_ID_TXT" source="CV_MD_ARTHIER_HIER_ID_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_STATUS" source="CV_MD_ARTHIER_STATUS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_STATUS_TXT" source="CV_MD_ARTHIER_STATUS_TXT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_MATNR" source="CV_MD_ARTHIER_MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL1" source="CV_MD_ARTHIER_LEVEL1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL1_LTEXTG" source="CV_MD_ARTHIER_LEVEL1_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL2" source="CV_MD_ARTHIER_LEVEL2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL2_LTEXTG" source="CV_MD_ARTHIER_LEVEL2_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL3" source="CV_MD_ARTHIER_LEVEL3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL3_LTEXTG" source="CV_MD_ARTHIER_LEVEL3_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL4" source="CV_MD_ARTHIER_LEVEL4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL4_LTEXTG" source="CV_MD_ARTHIER_LEVEL4_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL5" source="CV_MD_ARTHIER_LEVEL5"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL5_LTEXTG" source="CV_MD_ARTHIER_LEVEL5_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL6" source="CV_MD_ARTHIER_LEVEL6"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL6_LTEXTG" source="CV_MD_ARTHIER_LEVEL6_LTEXTG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL7" source="CV_MD_ARTHIER_LEVEL7"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CV_MD_ARTHIER_LEVEL7_LTEXTG" source="CV_MD_ARTHIER_LEVEL7_LTEXTG"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="CV_MD_ARTHIER_MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_MANDT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_MANDT"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_HIER_ID" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_HIER_ID"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_HIER_ID"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_HIER_ID_TXT" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_HIER_ID_TXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_HIER_ID_TXT"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_STATUS" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_STATUS"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_STATUS"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_STATUS_TXT" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_STATUS_TXT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_STATUS_TXT"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_MATNR" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_MATNR"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_MATNR"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL1" order="7" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL1_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL1"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL1"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL1_LTEXTG" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL1_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL1_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL2" order="9" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL2_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL2"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL2"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL2_LTEXTG" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL2_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL2_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL3" order="11" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL3_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL3"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL3"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL3_LTEXTG" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL3_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL3_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL4" order="13" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL4_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL4"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL4"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL4_LTEXTG" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL4_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL4_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL5" order="15" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL5_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL5"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL5"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL5_LTEXTG" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL5_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL5_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL6" order="17" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL6_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL6"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL6"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL6_LTEXTG" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL6_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL6_LTEXTG"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL7" order="19" attributeHierarchyActive="false" descriptionColumnName="CV_MD_ARTHIER_LEVEL7_LTEXTG" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL7"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL7"/>
+      </attribute>
+      <attribute id="CV_MD_ARTHIER_LEVEL7_LTEXTG" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CV_MD_ARTHIER_LEVEL7_LTEXTG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="CV_MD_ARTHIER_LEVEL7_LTEXTG"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

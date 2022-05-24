@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" schemaVersion="2.3" id="CV_FACT_DTC_BILLING_DOCS_01" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" alwaysAggregateResult="true" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <origin/>
+  <descriptions defaultDescription="Billing Documents Fact View"/>
+  <metadata changedAt="2021-02-17 14:10:57.771"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="53"/>
+  <dataSources>
+    <DataSource id="VBRK" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="VBRK"/>
+    </DataSource>
+    <DataSource id="VBRP" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="VBRP"/>
+    </DataSource>
+    <DataSource id="VBAK" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="VBAK"/>
+    </DataSource>
+    <DataSource id="VBAP" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAP_S4HANA_BI" columnObjectName="VBAP"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="VBELN"/>
+        <viewAttribute id="FKART"/>
+        <viewAttribute id="FKTYP"/>
+        <viewAttribute id="VBTYP"/>
+        <viewAttribute id="VKORG"/>
+        <viewAttribute id="VTWEG"/>
+        <viewAttribute id="FKDAT"/>
+        <viewAttribute id="BELNR"/>
+        <viewAttribute id="GJAHR"/>
+        <viewAttribute id="POPER"/>
+        <viewAttribute id="KUNRG"/>
+        <viewAttribute id="KUNAG"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="NEXT_YEAR_DATE"/>
+        <viewAttribute id="NEXT_NEXT_YEAR_DATE"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_NUMBER"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#VBRK">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKART" source="FKART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKTYP" source="FKTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBTYP" source="VBTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKORG" source="VKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG" source="VTWEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKDAT" source="FKDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BELNR" source="BELNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GJAHR" source="GJAHR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POPER" source="POPER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNRG" source="KUNRG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNAG" source="KUNAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_YEAR_DATE" source="NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_YEAR_DATE" source="NEXT_NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_MONTH_NUMBER" source="FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_MONTH_NUMBER" source="NEXT_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_MONTH_NUMBER" source="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_QUARTER_NUMBER" source="FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_QUARTER_NUMBER" source="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_QUARTER_NUMBER" source="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_NUMBER" source="NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_NUMBER" source="NEXT_N_FISCAL_YEAR_NUMBER"/>
+      </input>
+      <filter>in(&quot;VTWEG&quot;, '10', '15', '30')</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="COLUMN_ENGINE">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="VBELN"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="FKIMG"/>
+        <viewAttribute id="UMVKZ"/>
+        <viewAttribute id="UMVKN"/>
+        <viewAttribute id="NETWR"/>
+        <viewAttribute id="VGBEL"/>
+        <viewAttribute id="VGPOS"/>
+        <viewAttribute id="VGTYP"/>
+        <viewAttribute id="AUBEL"/>
+        <viewAttribute id="AUPOS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="PSTYV"/>
+        <viewAttribute id="SPART"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="WAERK"/>
+        <viewAttribute id="SHKZG"/>
+        <viewAttribute id="PRSDT"/>
+        <viewAttribute id="PRCTR"/>
+        <viewAttribute id="FSH_SEASON_YEAR"/>
+        <viewAttribute id="FSH_SEASON"/>
+        <viewAttribute id="FSH_COLLECTION"/>
+        <viewAttribute id="FSH_THEME"/>
+        <viewAttribute id="COMP"/>
+        <viewAttribute id="VTWEG_ANA"/>
+        <viewAttribute id="KZWI3"/>
+        <viewAttribute id="KZWI4"/>
+        <viewAttribute id="ZZWI15"/>
+        <viewAttribute id="MD_MU_FP_FLAG"/>
+        <viewAttribute id="MWSBP"/>
+        <viewAttribute id="ZZWI44"/>
+        <viewAttribute id="ZZWI43"/>
+        <viewAttribute id="MVGR1"/>
+        <viewAttribute id="KZWI1"/>
+        <viewAttribute id="WAVWR"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#VBRP">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKIMG" source="FKIMG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKZ" source="UMVKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKN" source="UMVKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NETWR" source="NETWR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGPOS" source="VGPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGTYP" source="VGTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUBEL" source="AUBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUPOS" source="AUPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPART" source="SPART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAERK" source="WAERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRSDT" source="PRSDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRCTR" source="PRCTR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON_YEAR" source="FSH_SEASON_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON" source="FSH_SEASON"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_COLLECTION" source="FSH_COLLECTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_THEME" source="FSH_THEME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMP" source="COMP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG_ANA" source="VTWEG_ANA"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI3" source="KZWI3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI4" source="KZWI4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI15" source="ZZWI15"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MD_MU_FP_FLAG" source="MD_MU_FP_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MWSBP" source="MWSBP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI44" source="ZZWI44"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI43" source="ZZWI43"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MVGR1" source="MVGR1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI1" source="KZWI1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAVWR" source="WAVWR"/>
+      </input>
+      <filter>in(&quot;VTWEG_ANA&quot;, '10', '15', '30')</filter>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinOrder="OUTSIDE_IN" joinType="referential" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="VBELN"/>
+        <viewAttribute id="FKART"/>
+        <viewAttribute id="FKTYP"/>
+        <viewAttribute id="VBTYP"/>
+        <viewAttribute id="VKORG"/>
+        <viewAttribute id="VTWEG"/>
+        <viewAttribute id="FKDAT"/>
+        <viewAttribute id="BELNR"/>
+        <viewAttribute id="GJAHR"/>
+        <viewAttribute id="POPER"/>
+        <viewAttribute id="KUNRG"/>
+        <viewAttribute id="KUNAG"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="FKIMG"/>
+        <viewAttribute id="UMVKZ"/>
+        <viewAttribute id="UMVKN"/>
+        <viewAttribute id="NETWR"/>
+        <viewAttribute id="VGBEL"/>
+        <viewAttribute id="VGPOS"/>
+        <viewAttribute id="VGTYP"/>
+        <viewAttribute id="AUBEL"/>
+        <viewAttribute id="AUPOS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="PSTYV"/>
+        <viewAttribute id="SPART"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="WAERK"/>
+        <viewAttribute id="SHKZG"/>
+        <viewAttribute id="PRSDT"/>
+        <viewAttribute id="PRCTR"/>
+        <viewAttribute id="FSH_SEASON_YEAR"/>
+        <viewAttribute id="FSH_SEASON"/>
+        <viewAttribute id="FSH_COLLECTION"/>
+        <viewAttribute id="FSH_THEME"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="NEXT_YEAR_DATE"/>
+        <viewAttribute id="NEXT_NEXT_YEAR_DATE"/>
+        <viewAttribute id="COMP"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="KZWI3"/>
+        <viewAttribute id="KZWI4"/>
+        <viewAttribute id="ZZWI15"/>
+        <viewAttribute id="MD_MU_FP_FLAG"/>
+        <viewAttribute id="MWSBP"/>
+        <viewAttribute id="ZZWI44"/>
+        <viewAttribute id="ZZWI43"/>
+        <viewAttribute id="MVGR1"/>
+        <viewAttribute id="KZWI1"/>
+        <viewAttribute id="WAVWR_TMP"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="SMALLINT" id="CC_SIGN" expressionLanguage="COLUMN_ENGINE">
+          <formula>if( &quot;SHKZG&quot; = 'X', -1, 1 )</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_FKIMG_W_SIGN" length="13" scale="3" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;FKIMG&quot; * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_NETWR_W_SIGN" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>( abs( &quot;NETWR&quot; ) - abs( &quot;ZZWI15&quot; ) - abs( &quot;KZWI4&quot; ) )* &quot;CC_SIGN&quot;&#xD;
+</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_FKIMG_LUM_W_SIGN" length="13" scale="3" expressionLanguage="COLUMN_ENGINE">
+          <formula>if(&quot;UMVKN&quot; != 0,( &quot;FKIMG&quot; * ( &quot;UMVKZ&quot; / &quot;UMVKN&quot; ) ) * &quot;CC_SIGN&quot;,&quot;FKIMG&quot;*&quot;CC_SIGN&quot;)</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_DISCOUNT_AMOUNT" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>abs( &quot;KZWI3&quot; ) * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_PROMO_DISCOUNTS" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>( abs( &quot;KZWI3&quot; ) - abs( &quot;ZZWI44&quot; ) - ( if( &quot;MD_MU_FP_FLAG&quot; = 'MD', abs( &quot;ZZWI43&quot; ), 0 ) ) ) * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_MARKDOWN_VALUE" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if( &quot;MD_MU_FP_FLAG&quot; = 'MD', abs( &quot;ZZWI43&quot; ) * &quot;CC_SIGN&quot;, 0 )</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_MARKUP_VALUE" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>if( &quot;MD_MU_FP_FLAG&quot; = 'MU', abs( &quot;ZZWI43&quot; ) * &quot;CC_SIGN&quot;, 0 )</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_EMPLOYEE_DISCOUNT" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>abs( &quot;ZZWI44&quot; ) * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_KZWI1_W_SIGN" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;KZWI1&quot; * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_KZWI4_W_SIGN" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;KZWI4&quot; * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="CC_ZZWI15_W_SIGN" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;ZZWI15&quot; * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="NVARCHAR" id="CC_PROMO_DISCOUNT_FLAG" length="1" expressionLanguage="COLUMN_ENGINE">
+          <formula>if( &quot;CC_PROMO_DISCOUNTS&quot; != 0, 'X', '' )</formula>
+        </calculatedViewAttribute>
+        <calculatedViewAttribute datatype="DECIMAL" id="WAVWR" length="13" scale="2" expressionLanguage="COLUMN_ENGINE">
+          <formula>abs( &quot;WAVWR_TMP&quot; ) * &quot;CC_SIGN&quot;</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKART" source="FKART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKTYP" source="FKTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBTYP" source="VBTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKORG" source="VKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG" source="VTWEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKDAT" source="FKDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BELNR" source="BELNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GJAHR" source="GJAHR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POPER" source="POPER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNRG" source="KUNRG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNAG" source="KUNAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_YEAR_DATE" source="NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_YEAR_DATE" source="NEXT_NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_MONTH_NUMBER" source="FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_MONTH_NUMBER" source="NEXT_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_MONTH_NUMBER" source="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_QUARTER_NUMBER" source="FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_QUARTER_NUMBER" source="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_QUARTER_NUMBER" source="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_NUMBER" source="NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_NUMBER" source="NEXT_N_FISCAL_YEAR_NUMBER"/>
+      </input>
+      <input node="#Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKIMG" source="FKIMG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKZ" source="UMVKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKN" source="UMVKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NETWR" source="NETWR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGPOS" source="VGPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGTYP" source="VGTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUBEL" source="AUBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUPOS" source="AUPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPART" source="SPART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAERK" source="WAERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRSDT" source="PRSDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRCTR" source="PRCTR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON_YEAR" source="FSH_SEASON_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON" source="FSH_SEASON"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_COLLECTION" source="FSH_COLLECTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_THEME" source="FSH_THEME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMP" source="COMP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI3" source="KZWI3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI4" source="KZWI4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI15" source="ZZWI15"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MD_MU_FP_FLAG" source="MD_MU_FP_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MWSBP" source="MWSBP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI44" source="ZZWI44"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI43" source="ZZWI43"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MVGR1" source="MVGR1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI1" source="KZWI1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAVWR_TMP" source="WAVWR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="VBELN"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="BSARK"/>
+        <viewAttribute id="VTWEG">
+          <filter xsi:type="AccessControl:SingleValueFilter" including="true" value="30"/>
+        </viewAttribute>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="VBELN"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#VBAK">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BSARK" source="BSARK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG" source="VTWEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="BSARK"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="VBELN"/>
+        <viewAttribute id="FKART"/>
+        <viewAttribute id="FKTYP"/>
+        <viewAttribute id="VBTYP"/>
+        <viewAttribute id="VKORG"/>
+        <viewAttribute id="VTWEG"/>
+        <viewAttribute id="FKDAT"/>
+        <viewAttribute id="BELNR"/>
+        <viewAttribute id="GJAHR"/>
+        <viewAttribute id="POPER"/>
+        <viewAttribute id="KUNRG"/>
+        <viewAttribute id="KUNAG"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="FKIMG"/>
+        <viewAttribute id="UMVKZ"/>
+        <viewAttribute id="UMVKN"/>
+        <viewAttribute id="NETWR"/>
+        <viewAttribute id="VGBEL"/>
+        <viewAttribute id="VGPOS"/>
+        <viewAttribute id="VGTYP"/>
+        <viewAttribute id="AUBEL"/>
+        <viewAttribute id="AUPOS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="PSTYV"/>
+        <viewAttribute id="SPART"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="WAERK"/>
+        <viewAttribute id="SHKZG"/>
+        <viewAttribute id="PRSDT"/>
+        <viewAttribute id="PRCTR"/>
+        <viewAttribute id="FSH_SEASON_YEAR"/>
+        <viewAttribute id="FSH_SEASON"/>
+        <viewAttribute id="FSH_COLLECTION"/>
+        <viewAttribute id="FSH_THEME"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="NEXT_YEAR_DATE"/>
+        <viewAttribute id="NEXT_NEXT_YEAR_DATE"/>
+        <viewAttribute id="COMP"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="KZWI3"/>
+        <viewAttribute id="KZWI4"/>
+        <viewAttribute id="ZZWI15"/>
+        <viewAttribute id="MD_MU_FP_FLAG"/>
+        <viewAttribute id="MWSBP"/>
+        <viewAttribute id="ZZWI44"/>
+        <viewAttribute id="ZZWI43"/>
+        <viewAttribute id="MVGR1"/>
+        <viewAttribute id="KZWI1"/>
+        <viewAttribute id="CC_SIGN"/>
+        <viewAttribute id="CC_FKIMG_W_SIGN"/>
+        <viewAttribute id="CC_NETWR_W_SIGN"/>
+        <viewAttribute id="CC_FKIMG_LUM_W_SIGN"/>
+        <viewAttribute id="CC_DISCOUNT_AMOUNT"/>
+        <viewAttribute id="CC_PROMO_DISCOUNTS"/>
+        <viewAttribute id="CC_MARKDOWN_VALUE"/>
+        <viewAttribute id="CC_MARKUP_VALUE"/>
+        <viewAttribute id="CC_EMPLOYEE_DISCOUNT"/>
+        <viewAttribute id="CC_KZWI1_W_SIGN"/>
+        <viewAttribute id="CC_KZWI4_W_SIGN"/>
+        <viewAttribute id="CC_ZZWI15_W_SIGN"/>
+        <viewAttribute id="CC_PROMO_DISCOUNT_FLAG"/>
+        <viewAttribute id="WAVWR"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKART" source="FKART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKTYP" source="FKTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBTYP" source="VBTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKORG" source="VKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG" source="VTWEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKDAT" source="FKDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BELNR" source="BELNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GJAHR" source="GJAHR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POPER" source="POPER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNRG" source="KUNRG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNAG" source="KUNAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKIMG" source="FKIMG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKZ" source="UMVKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKN" source="UMVKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NETWR" source="NETWR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGPOS" source="VGPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGTYP" source="VGTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUBEL" source="AUBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUPOS" source="AUPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPART" source="SPART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAERK" source="WAERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRSDT" source="PRSDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRCTR" source="PRCTR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON_YEAR" source="FSH_SEASON_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON" source="FSH_SEASON"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_COLLECTION" source="FSH_COLLECTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_THEME" source="FSH_THEME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_YEAR_DATE" source="NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_YEAR_DATE" source="NEXT_NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMP" source="COMP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_MONTH_NUMBER" source="FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_MONTH_NUMBER" source="NEXT_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_MONTH_NUMBER" source="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_QUARTER_NUMBER" source="FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_QUARTER_NUMBER" source="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_QUARTER_NUMBER" source="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_NUMBER" source="NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_NUMBER" source="NEXT_N_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI3" source="KZWI3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI4" source="KZWI4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI15" source="ZZWI15"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MD_MU_FP_FLAG" source="MD_MU_FP_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MWSBP" source="MWSBP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI44" source="ZZWI44"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI43" source="ZZWI43"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MVGR1" source="MVGR1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI1" source="KZWI1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_SIGN" source="CC_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_FKIMG_W_SIGN" source="CC_FKIMG_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_NETWR_W_SIGN" source="CC_NETWR_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_FKIMG_LUM_W_SIGN" source="CC_FKIMG_LUM_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_DISCOUNT_AMOUNT" source="CC_DISCOUNT_AMOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_PROMO_DISCOUNTS" source="CC_PROMO_DISCOUNTS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_MARKDOWN_VALUE" source="CC_MARKDOWN_VALUE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_MARKUP_VALUE" source="CC_MARKUP_VALUE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_EMPLOYEE_DISCOUNT" source="CC_EMPLOYEE_DISCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_KZWI1_W_SIGN" source="CC_KZWI1_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_KZWI4_W_SIGN" source="CC_KZWI4_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_ZZWI15_W_SIGN" source="CC_ZZWI15_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_PROMO_DISCOUNT_FLAG" source="CC_PROMO_DISCOUNT_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAVWR" source="WAVWR"/>
+      </input>
+      <input node="#Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="BSARK" source="BSARK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUBEL" source="VBELN"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="AUBEL"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="VBELN"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="SGT_RCAT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#VBAP">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SGT_RCAT" source="SGT_RCAT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_1" joinOrder="OUTSIDE_IN" joinType="leftOuter" optimizeJoinColumns="true">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="BSARK"/>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="VBELN"/>
+        <viewAttribute id="FKART"/>
+        <viewAttribute id="FKTYP"/>
+        <viewAttribute id="VBTYP"/>
+        <viewAttribute id="VKORG"/>
+        <viewAttribute id="VTWEG"/>
+        <viewAttribute id="FKDAT"/>
+        <viewAttribute id="BELNR"/>
+        <viewAttribute id="GJAHR"/>
+        <viewAttribute id="POPER"/>
+        <viewAttribute id="KUNRG"/>
+        <viewAttribute id="KUNAG"/>
+        <viewAttribute id="POSNR"/>
+        <viewAttribute id="UMVKZ"/>
+        <viewAttribute id="UMVKN"/>
+        <viewAttribute id="VGBEL"/>
+        <viewAttribute id="VGPOS"/>
+        <viewAttribute id="VGTYP"/>
+        <viewAttribute id="AUBEL"/>
+        <viewAttribute id="AUPOS"/>
+        <viewAttribute id="MATNR"/>
+        <viewAttribute id="PSTYV"/>
+        <viewAttribute id="SPART"/>
+        <viewAttribute id="WERKS"/>
+        <viewAttribute id="ERDAT"/>
+        <viewAttribute id="KOKRS"/>
+        <viewAttribute id="WAERK"/>
+        <viewAttribute id="SHKZG"/>
+        <viewAttribute id="PRSDT"/>
+        <viewAttribute id="PRCTR"/>
+        <viewAttribute id="FSH_SEASON_YEAR"/>
+        <viewAttribute id="FSH_SEASON"/>
+        <viewAttribute id="FSH_COLLECTION"/>
+        <viewAttribute id="FSH_THEME"/>
+        <viewAttribute id="BUKRS"/>
+        <viewAttribute id="AUART"/>
+        <viewAttribute id="NEXT_YEAR_DATE"/>
+        <viewAttribute id="NEXT_NEXT_YEAR_DATE"/>
+        <viewAttribute id="COMP"/>
+        <viewAttribute id="FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <viewAttribute id="FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <viewAttribute id="FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <viewAttribute id="FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="NEXT_N_FISCAL_YEAR_NUMBER"/>
+        <viewAttribute id="FKIMG"/>
+        <viewAttribute id="NETWR"/>
+        <viewAttribute id="KZWI3"/>
+        <viewAttribute id="SGT_RCAT"/>
+        <viewAttribute id="KZWI4"/>
+        <viewAttribute id="ZZWI15"/>
+        <viewAttribute id="MD_MU_FP_FLAG"/>
+        <viewAttribute id="MWSBP"/>
+        <viewAttribute id="ZZWI44"/>
+        <viewAttribute id="ZZWI43"/>
+        <viewAttribute id="MVGR1"/>
+        <viewAttribute id="KZWI1"/>
+        <viewAttribute id="CC_SIGN"/>
+        <viewAttribute id="CC_FKIMG_W_SIGN"/>
+        <viewAttribute id="CC_NETWR_W_SIGN"/>
+        <viewAttribute id="CC_FKIMG_LUM_W_SIGN"/>
+        <viewAttribute id="CC_DISCOUNT_AMOUNT"/>
+        <viewAttribute id="CC_PROMO_DISCOUNTS"/>
+        <viewAttribute id="CC_MARKDOWN_VALUE"/>
+        <viewAttribute id="CC_MARKUP_VALUE"/>
+        <viewAttribute id="CC_EMPLOYEE_DISCOUNT"/>
+        <viewAttribute id="CC_KZWI1_W_SIGN"/>
+        <viewAttribute id="CC_KZWI4_W_SIGN"/>
+        <viewAttribute id="CC_ZZWI15_W_SIGN"/>
+        <viewAttribute id="CC_PROMO_DISCOUNT_FLAG"/>
+        <viewAttribute id="WAVWR"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Join_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="BSARK" source="BSARK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKART" source="FKART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKTYP" source="FKTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VBTYP" source="VBTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VKORG" source="VKORG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VTWEG" source="VTWEG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKDAT" source="FKDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BELNR" source="BELNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="GJAHR" source="GJAHR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POPER" source="POPER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNRG" source="KUNRG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KUNAG" source="KUNAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKZ" source="UMVKZ"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="UMVKN" source="UMVKN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGPOS" source="VGPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VGTYP" source="VGTYP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUBEL" source="AUBEL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUPOS" source="AUPOS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SPART" source="SPART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KOKRS" source="KOKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAERK" source="WAERK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRSDT" source="PRSDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRCTR" source="PRCTR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON_YEAR" source="FSH_SEASON_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_SEASON" source="FSH_SEASON"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_COLLECTION" source="FSH_COLLECTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FSH_THEME" source="FSH_THEME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUART" source="AUART"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_YEAR_DATE" source="NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_NEXT_YEAR_DATE" source="NEXT_NEXT_YEAR_DATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMP" source="COMP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_WEEK_NUMBER" source="FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_WEEK_NUMBER" source="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_MONTH_NUMBER" source="FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_MONTH_NUMBER" source="NEXT_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_MONTH_NUMBER" source="NEXT_N_FISCAL_MONTH_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_QUARTER_NUMBER" source="FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_QUARTER_NUMBER" source="NEXT_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_QUARTER_NUMBER" source="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR_NUMBER" source="FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_FISCAL_YEAR_NUMBER" source="NEXT_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NEXT_N_FISCAL_YEAR_NUMBER" source="NEXT_N_FISCAL_YEAR_NUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FKIMG" source="FKIMG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="NETWR" source="NETWR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI3" source="KZWI3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI4" source="KZWI4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI15" source="ZZWI15"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MD_MU_FP_FLAG" source="MD_MU_FP_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MWSBP" source="MWSBP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI44" source="ZZWI44"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ZZWI43" source="ZZWI43"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MVGR1" source="MVGR1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KZWI1" source="KZWI1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_SIGN" source="CC_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_FKIMG_W_SIGN" source="CC_FKIMG_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_NETWR_W_SIGN" source="CC_NETWR_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_FKIMG_LUM_W_SIGN" source="CC_FKIMG_LUM_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_DISCOUNT_AMOUNT" source="CC_DISCOUNT_AMOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_PROMO_DISCOUNTS" source="CC_PROMO_DISCOUNTS"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_MARKDOWN_VALUE" source="CC_MARKDOWN_VALUE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_MARKUP_VALUE" source="CC_MARKUP_VALUE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_EMPLOYEE_DISCOUNT" source="CC_EMPLOYEE_DISCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_KZWI1_W_SIGN" source="CC_KZWI1_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_KZWI4_W_SIGN" source="CC_KZWI4_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_ZZWI15_W_SIGN" source="CC_ZZWI15_W_SIGN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_PROMO_DISCOUNT_FLAG" source="CC_PROMO_DISCOUNT_FLAG"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAVWR" source="WAVWR"/>
+      </input>
+      <input node="#Projection_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SGT_RCAT" source="SGT_RCAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUBEL" source="VBELN"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AUPOS" source="POSNR"/>
+      </input>
+      <joinAttribute name="MANDT"/>
+      <joinAttribute name="AUBEL"/>
+      <joinAttribute name="AUPOS"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_3">
+    <descriptions/>
+    <attributes>
+      <attribute id="BSARK" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Customer Purchase Order Type"/>
+        <keyMapping columnObjectName="Join_3" columnName="BSARK"/>
+      </attribute>
+      <attribute id="MANDT" order="2" attributeHierarchyActive="false" displayAttribute="false" keepFlag="false">
+        <descriptions defaultDescription="Client"/>
+        <keyMapping columnObjectName="Join_3" columnName="MANDT"/>
+      </attribute>
+      <attribute id="VBELN" order="3" attributeHierarchyActive="false" displayAttribute="false" keepFlag="false">
+        <descriptions defaultDescription="Billing Document"/>
+        <keyMapping columnObjectName="Join_3" columnName="VBELN"/>
+      </attribute>
+      <attribute id="FKART" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Billing Type"/>
+        <keyMapping columnObjectName="Join_3" columnName="FKART"/>
+      </attribute>
+      <attribute id="FKTYP" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Billing Category"/>
+        <keyMapping columnObjectName="Join_3" columnName="FKTYP"/>
+      </attribute>
+      <attribute id="VBTYP" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SD Document Category"/>
+        <keyMapping columnObjectName="Join_3" columnName="VBTYP"/>
+      </attribute>
+      <attribute id="VKORG" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Organization"/>
+        <keyMapping columnObjectName="Join_3" columnName="VKORG"/>
+      </attribute>
+      <attribute id="VTWEG" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Distribution Channel"/>
+        <keyMapping columnObjectName="Join_3" columnName="VTWEG"/>
+      </attribute>
+      <attribute id="FKDAT" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Billing Date"/>
+        <keyMapping columnObjectName="Join_3" columnName="FKDAT"/>
+      </attribute>
+      <attribute id="BELNR" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Accounting Document Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="BELNR"/>
+      </attribute>
+      <attribute id="GJAHR" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year"/>
+        <keyMapping columnObjectName="Join_3" columnName="GJAHR"/>
+      </attribute>
+      <attribute id="POPER" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Posting period"/>
+        <keyMapping columnObjectName="Join_3" columnName="POPER"/>
+      </attribute>
+      <attribute id="KUNRG" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payer"/>
+        <keyMapping columnObjectName="Join_3" columnName="KUNRG"/>
+      </attribute>
+      <attribute id="KUNAG" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sold-To Party"/>
+        <keyMapping columnObjectName="Join_3" columnName="KUNAG"/>
+      </attribute>
+      <attribute id="POSNR" order="15" attributeHierarchyActive="false" displayAttribute="false" keepFlag="false">
+        <descriptions defaultDescription="Billing Item"/>
+        <keyMapping columnObjectName="Join_3" columnName="POSNR"/>
+      </attribute>
+      <attribute id="UMVKZ" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Numerator (factor) for conversion of sales quantity into SKU"/>
+        <keyMapping columnObjectName="Join_3" columnName="UMVKZ"/>
+      </attribute>
+      <attribute id="UMVKN" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Denominator (Divisor) for Conversion of Sales Qty into SKU"/>
+        <keyMapping columnObjectName="Join_3" columnName="UMVKN"/>
+      </attribute>
+      <attribute id="VGBEL" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Document number of the reference document"/>
+        <keyMapping columnObjectName="Join_3" columnName="VGBEL"/>
+      </attribute>
+      <attribute id="VGPOS" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Item number of the reference item"/>
+        <keyMapping columnObjectName="Join_3" columnName="VGPOS"/>
+      </attribute>
+      <attribute id="VGTYP" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Document Category of Preceding SD Document"/>
+        <keyMapping columnObjectName="Join_3" columnName="VGTYP"/>
+      </attribute>
+      <attribute id="AUBEL" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Document"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUBEL"/>
+      </attribute>
+      <attribute id="AUPOS" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Document Item"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUPOS"/>
+      </attribute>
+      <attribute id="MATNR" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Material Number"/>
+        <keyMapping columnObjectName="Join_3" columnName="MATNR"/>
+      </attribute>
+      <attribute id="PSTYV" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales document item category"/>
+        <keyMapping columnObjectName="Join_3" columnName="PSTYV"/>
+      </attribute>
+      <attribute id="SPART" order="25" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Division"/>
+        <keyMapping columnObjectName="Join_3" columnName="SPART"/>
+      </attribute>
+      <attribute id="WERKS" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Plant"/>
+        <keyMapping columnObjectName="Join_3" columnName="WERKS"/>
+      </attribute>
+      <attribute id="ERDAT" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date on which the record was created"/>
+        <keyMapping columnObjectName="Join_3" columnName="ERDAT"/>
+      </attribute>
+      <attribute id="KOKRS" order="28" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Controlling Area"/>
+        <keyMapping columnObjectName="Join_3" columnName="KOKRS"/>
+      </attribute>
+      <attribute id="WAERK" order="29" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SD document currency"/>
+        <keyMapping columnObjectName="Join_3" columnName="WAERK"/>
+      </attribute>
+      <attribute id="SHKZG" order="30" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Returns item"/>
+        <keyMapping columnObjectName="Join_3" columnName="SHKZG"/>
+      </attribute>
+      <attribute id="PRSDT" order="31" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Date for Pricing and Exchange Rate"/>
+        <keyMapping columnObjectName="Join_3" columnName="PRSDT"/>
+      </attribute>
+      <attribute id="PRCTR" order="32" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Profit Center"/>
+        <keyMapping columnObjectName="Join_3" columnName="PRCTR"/>
+      </attribute>
+      <attribute id="FSH_SEASON_YEAR" order="33" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Season Year"/>
+        <keyMapping columnObjectName="Join_3" columnName="FSH_SEASON_YEAR"/>
+      </attribute>
+      <attribute id="FSH_SEASON" order="34" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Season"/>
+        <keyMapping columnObjectName="Join_3" columnName="FSH_SEASON"/>
+      </attribute>
+      <attribute id="FSH_COLLECTION" order="35" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fashion Collection"/>
+        <keyMapping columnObjectName="Join_3" columnName="FSH_COLLECTION"/>
+      </attribute>
+      <attribute id="FSH_THEME" order="36" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fashion Theme"/>
+        <keyMapping columnObjectName="Join_3" columnName="FSH_THEME"/>
+      </attribute>
+      <attribute id="BUKRS" order="37" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company Code"/>
+        <keyMapping columnObjectName="Join_3" columnName="BUKRS"/>
+      </attribute>
+      <attribute id="AUART" order="38" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Document Type"/>
+        <keyMapping columnObjectName="Join_3" columnName="AUART"/>
+      </attribute>
+      <attribute id="NEXT_YEAR_DATE" order="39" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_YEAR_DATE"/>
+      </attribute>
+      <attribute id="NEXT_NEXT_YEAR_DATE" order="40" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_NEXT_YEAR_DATE"/>
+      </attribute>
+      <attribute id="COMP" order="41" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="COMP"/>
+      </attribute>
+      <attribute id="FISCAL_YEAR_WEEK_NUMBER" order="42" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Week Nbr"/>
+        <keyMapping columnObjectName="Join_3" columnName="FISCAL_YEAR_WEEK_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_YEAR_WEEK_NUMBER" order="43" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_FISCAL_YEAR_WEEK_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_N_FISCAL_YEAR_WEEK_NUMBER" order="44" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_N_FISCAL_YEAR_WEEK_NUMBER"/>
+      </attribute>
+      <attribute id="FISCAL_MONTH_NUMBER" order="45" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Month Nbr"/>
+        <keyMapping columnObjectName="Join_3" columnName="FISCAL_MONTH_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_MONTH_NUMBER" order="46" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_FISCAL_MONTH_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_N_FISCAL_MONTH_NUMBER" order="47" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_N_FISCAL_MONTH_NUMBER"/>
+      </attribute>
+      <attribute id="FISCAL_QUARTER_NUMBER" order="48" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Quarter Nbr"/>
+        <keyMapping columnObjectName="Join_3" columnName="FISCAL_QUARTER_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_QUARTER_NUMBER" order="49" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_FISCAL_QUARTER_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_N_FISCAL_QUARTER_NUMBER" order="50" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_N_FISCAL_QUARTER_NUMBER"/>
+      </attribute>
+      <attribute id="FISCAL_YEAR_NUMBER" order="51" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Fiscal Year Nbr"/>
+        <keyMapping columnObjectName="Join_3" columnName="FISCAL_YEAR_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_FISCAL_YEAR_NUMBER" order="52" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_FISCAL_YEAR_NUMBER"/>
+      </attribute>
+      <attribute id="NEXT_N_FISCAL_YEAR_NUMBER" order="53" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="Join_3" columnName="NEXT_N_FISCAL_YEAR_NUMBER"/>
+      </attribute>
+      <attribute id="SGT_RCAT" order="57" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Requirement Segment"/>
+        <keyMapping columnObjectName="Join_3" columnName="SGT_RCAT"/>
+      </attribute>
+      <attribute id="MD_MU_FP_FLAG" order="62" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Markdown / Markup / FullPrice Indicator"/>
+        <keyMapping columnObjectName="Join_3" columnName="MD_MU_FP_FLAG"/>
+      </attribute>
+      <attribute id="MVGR1" order="66" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Retail Inventory Category (Transaction)"/>
+        <keyMapping columnObjectName="Join_3" columnName="MVGR1"/>
+      </attribute>
+      <attribute id="CC_SIGN" hidden="true" order="68" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Measures Sign"/>
+        <keyMapping columnObjectName="Join_3" columnName="CC_SIGN"/>
+      </attribute>
+      <attribute id="CC_PROMO_DISCOUNT_FLAG" hidden="false" order="80" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Promo Discount Transaction Flag"/>
+        <keyMapping columnObjectName="Join_3" columnName="CC_PROMO_DISCOUNT_FLAG"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="FKIMG" order="54" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Actual billed quantity"/>
+        <measureMapping columnObjectName="Join_3" columnName="FKIMG"/>
+      </measure>
+      <measure id="NETWR" order="55" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Net value of the billing item in document currency"/>
+        <measureMapping columnObjectName="Join_3" columnName="NETWR"/>
+      </measure>
+      <measure id="KZWI3" order="56" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Subtotal 3 from pricing procedure for condition"/>
+        <measureMapping columnObjectName="Join_3" columnName="KZWI3"/>
+      </measure>
+      <measure id="KZWI4" order="60" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Freight Amount"/>
+        <measureMapping columnObjectName="Join_3" columnName="KZWI4"/>
+      </measure>
+      <measure id="ZZWI15" order="61" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Condition subtotal"/>
+        <measureMapping columnObjectName="Join_3" columnName="ZZWI15"/>
+      </measure>
+      <measure id="MWSBP" order="63" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Tax amount in document currency"/>
+        <measureMapping columnObjectName="Join_3" columnName="MWSBP"/>
+      </measure>
+      <measure id="ZZWI44" hidden="true" order="64" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Employee Discounts Value"/>
+        <measureMapping columnObjectName="Join_3" columnName="ZZWI44"/>
+      </measure>
+      <measure id="ZZWI43" hidden="true" order="65" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Markdown Value"/>
+        <measureMapping columnObjectName="Join_3" columnName="ZZWI43"/>
+      </measure>
+      <measure id="KZWI1" order="67" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Subtotal 1 from pricing procedure for condition"/>
+        <measureMapping columnObjectName="Join_3" columnName="KZWI1"/>
+      </measure>
+      <measure id="CC_FKIMG_W_SIGN" hidden="false" order="69" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Actual billed quantity (w/sign)"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_FKIMG_W_SIGN"/>
+      </measure>
+      <measure id="CC_NETWR_W_SIGN" hidden="false" order="70" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Net value of the billing item in document currency (w/sign)"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_NETWR_W_SIGN"/>
+      </measure>
+      <measure id="CC_FKIMG_LUM_W_SIGN" hidden="false" order="71" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Actual billed quantity (w/sign)"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_FKIMG_LUM_W_SIGN"/>
+      </measure>
+      <measure id="CC_DISCOUNT_AMOUNT" hidden="false" order="72" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Discount Amount"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_DISCOUNT_AMOUNT"/>
+      </measure>
+      <measure id="CC_PROMO_DISCOUNTS" hidden="false" order="73" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Promo Discounts Value"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_PROMO_DISCOUNTS"/>
+      </measure>
+      <measure id="CC_MARKDOWN_VALUE" hidden="false" order="74" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Markdown Value"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_MARKDOWN_VALUE"/>
+      </measure>
+      <measure id="CC_MARKUP_VALUE" hidden="false" order="75" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Markup Value"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_MARKUP_VALUE"/>
+      </measure>
+      <measure id="CC_EMPLOYEE_DISCOUNT" hidden="false" order="76" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Employee Discount Value"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_EMPLOYEE_DISCOUNT"/>
+      </measure>
+      <measure id="CC_KZWI1_W_SIGN" hidden="false" order="77" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Gross Amount"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_KZWI1_W_SIGN"/>
+      </measure>
+      <measure id="CC_KZWI4_W_SIGN" hidden="false" order="78" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Freight Amount"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_KZWI4_W_SIGN"/>
+      </measure>
+      <measure id="CC_ZZWI15_W_SIGN" hidden="false" order="79" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Tax Amount"/>
+        <measureMapping columnObjectName="Join_3" columnName="CC_ZZWI15_W_SIGN"/>
+      </measure>
+      <measure id="WAVWR" hidden="false" order="81" semanticType="empty" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Cost in Document Currency"/>
+        <measureMapping columnObjectName="Join_3" columnName="WAVWR"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures>
+      <measure id="CC_FKIMG_RET" hidden="false" order="58" baseMeasure="#FKIMG">
+        <descriptions defaultDescription="Returned Quantity"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="SHKZG">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="X"/>
+          </filter>
+          <attributeName>SHKZG</attributeName>
+        </restriction>
+      </measure>
+      <measure id="CC_NETWR_RET" hidden="false" order="59" baseMeasure="#NETWR">
+        <descriptions defaultDescription="Returned Net Value"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="SHKZG">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="X"/>
+          </filter>
+          <attributeName>SHKZG</attributeName>
+        </restriction>
+      </measure>
+    </restrictedMeasures>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="247" y="69"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="16" y="462"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="170" y="462"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="93" y="366"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="247" y="366"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="170" y="270"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="340" y="278"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="247" y="170"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>
